@@ -35,10 +35,16 @@ typedef unsigned char uint8_t;
 //LATD0 is clock, when raise the din pin signal will be store.
 //LATD1 is cs (Load), for indicate which time for start and end.
 //LATD2 is din, for signal input.
-void shiftOut(uint8_t bitOrder, uint8_t val);
-void set_register(unsigned char address, unsigned char value);
+void shiftOut1(uint8_t bitOrder, uint8_t val);
+void shiftOut2(uint8_t bitOrder, uint8_t val);
+void shiftOut3(uint8_t bitOrder, uint8_t val);
+void shiftOut4(uint8_t bitOrder, uint8_t val);
+void set_register1(unsigned char address, unsigned char value);
+void set_register2(unsigned char address, unsigned char value);
+void set_register3(unsigned char address, unsigned char value);
+void set_register4(unsigned char address, unsigned char value);
 void clear_matrix();
 void init_max7219();
-void plot(unsigned char *pattern);
+void plot(unsigned char pattern[16][16]);
 #endif	/* LED_METRIX_H */
 
