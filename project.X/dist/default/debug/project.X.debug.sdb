@@ -1,0 +1,564 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4520 ]
+[d frameptr 4065 ]
+"9 C:\Users\Jia An\MPLABXProjects\project.X\ball.c
+[v _move_ball move_ball `(v  1 e 1 0 ]
+"79
+[v _initial initial `(v  1 e 1 0 ]
+"89
+[v _ball ball `(v  1 e 1 0 ]
+"122
+[v _board board `(v  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\time.c
+[v _time time `(o  1 e 8 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"3 C:\Users\Jia An\MPLABXProjects\project.X\led-metrix.c
+[v _shiftOut1 shiftOut1 `(v  1 e 1 0 ]
+[v i2_shiftOut1 shiftOut1 `(v  1 e 1 0 ]
+"24
+[v _shiftOut2 shiftOut2 `(v  1 e 1 0 ]
+[v i2_shiftOut2 shiftOut2 `(v  1 e 1 0 ]
+"45
+[v _shiftOut3 shiftOut3 `(v  1 e 1 0 ]
+[v i2_shiftOut3 shiftOut3 `(v  1 e 1 0 ]
+"66
+[v _shiftOut4 shiftOut4 `(v  1 e 1 0 ]
+[v i2_shiftOut4 shiftOut4 `(v  1 e 1 0 ]
+"90
+[v _set_register1 set_register1 `(v  1 e 1 0 ]
+[v i2_set_register1 set_register1 `(v  1 e 1 0 ]
+"98
+[v _set_register2 set_register2 `(v  1 e 1 0 ]
+[v i2_set_register2 set_register2 `(v  1 e 1 0 ]
+"106
+[v _set_register3 set_register3 `(v  1 e 1 0 ]
+[v i2_set_register3 set_register3 `(v  1 e 1 0 ]
+"114
+[v _set_register4 set_register4 `(v  1 e 1 0 ]
+[v i2_set_register4 set_register4 `(v  1 e 1 0 ]
+"122
+[v _clear_matrix clear_matrix `(v  1 e 1 0 ]
+"134
+[v _init_max7219 init_max7219 `(v  1 e 1 0 ]
+"182
+[v _plot plot `(v  1 e 1 0 ]
+[v i2_plot plot `(v  1 e 1 0 ]
+"141 C:\Users\Jia An\MPLABXProjects\project.X\main.c
+[v _ISR ISR `IIH(v  1 e 1 0 ]
+"162
+[v _main main `(v  1 e 1 0 ]
+"13 C:\Users\Jia An\MPLABXProjects\project.X/ball.h
+[v _LED LED `[16][16]uc  1 e 256 0 ]
+"14
+[v _left_board left_board `[16]i  1 e 32 0 ]
+"15
+[v _right_board right_board `[16]i  1 e 32 0 ]
+"16
+[v _ball_x ball_x `i  1 e 2 0 ]
+"17
+[v _ball_y ball_y `i  1 e 2 0 ]
+"18
+[v _ball_last_x ball_last_x `i  1 e 2 0 ]
+"19
+[v _ball_last_y ball_last_y `i  1 e 2 0 ]
+"52 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h
+[v _PORTA PORTA `VEuc  1 e 1 @3968 ]
+"632
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+[s S34 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"669
+[s S43 . 1 `uc 1 PSP0 1 0 :1:0 
+`uc 1 PSP1 1 0 :1:1 
+`uc 1 PSP2 1 0 :1:2 
+`uc 1 PSP3 1 0 :1:3 
+`uc 1 PSP4 1 0 :1:4 
+`uc 1 PSP5 1 0 :1:5 
+`uc 1 PSP6 1 0 :1:6 
+`uc 1 PSP7 1 0 :1:7 
+]
+[s S52 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 P1B 1 0 :1:5 
+`uc 1 P1C 1 0 :1:6 
+`uc 1 P1D 1 0 :1:7 
+]
+[s S57 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S60 . 1 `S34 1 . 1 0 `S43 1 . 1 0 `S52 1 . 1 0 `S57 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES60  1 e 1 @3971 ]
+"977
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+[s S102 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"1116
+[s S111 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S120 . 1 `S102 1 . 1 0 `S111 1 . 1 0 ]
+[v _LATBbits LATBbits `VES120  1 e 1 @3978 ]
+[s S182 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"1228
+[s S191 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 LC3 1 0 :1:3 
+`uc 1 LC4 1 0 :1:4 
+`uc 1 LC5 1 0 :1:5 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S200 . 1 `S182 1 . 1 0 `S191 1 . 1 0 ]
+[v _LATCbits LATCbits `VES200  1 e 1 @3979 ]
+[s S142 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"1340
+[s S151 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S160 . 1 `S142 1 . 1 0 `S151 1 . 1 0 ]
+[v _LATDbits LATDbits `VES160  1 e 1 @3980 ]
+[s S224 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"1509
+[s S233 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[u S242 . 1 `S224 1 . 1 0 `S233 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES242  1 e 1 @3986 ]
+"1699
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"1921
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2143
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S266 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"5697
+[s S268 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S271 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S274 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S277 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S280 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 SBOREN 1 0 :1:6 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S289 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+]
+[u S295 . 1 `S266 1 . 1 0 `S268 1 . 1 0 `S271 1 . 1 0 `S274 1 . 1 0 `S277 1 . 1 0 `S280 1 . 1 0 `S289 1 . 1 0 ]
+[v _RCONbits RCONbits `VES295  1 e 1 @4048 ]
+"6168
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+"6258
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+[s S333 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"6724
+[s S342 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S351 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S355 . 1 `S333 1 . 1 0 `S342 1 . 1 0 `S351 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES355  1 e 1 @4082 ]
+"8494
+[v _TMR0IE TMR0IE `VEb  1 e 0 @32661 ]
+"8497
+[v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
+"92 C:\Users\Jia An\MPLABXProjects\project.X\main.c
+[v _test1 test1 `C[16][16]uc  1 e 256 0 ]
+"132
+[v _a a `uc  1 e 1 0 ]
+[v _b b `uc  1 e 1 0 ]
+[v _c c `uc  1 e 1 0 ]
+[v _d d `uc  1 e 1 0 ]
+"162
+[v _main main `(v  1 e 1 0 ]
+{
+"208
+} 0
+"182 C:\Users\Jia An\MPLABXProjects\project.X\led-metrix.c
+[v _plot plot `(v  1 e 1 0 ]
+{
+"188
+[v plot@char_pattern4 char_pattern4 `[8]uc  1 a 8 36 ]
+"187
+[v plot@char_pattern3 char_pattern3 `[8]uc  1 a 8 28 ]
+"186
+[v plot@char_pattern2 char_pattern2 `[8]uc  1 a 8 20 ]
+"185
+[v plot@char_pattern1 char_pattern1 `[8]uc  1 a 8 12 ]
+"184
+[v plot@i i `i  1 a 2 46 ]
+[v plot@j j `i  1 a 2 44 ]
+"182
+[v plot@pattern pattern `*.35[16]uc  1 p 2 6 ]
+"184
+[v plot@F2594 F2594 `[8]uc  1 s 8 F2594 ]
+"185
+[v plot@F2596 F2596 `[8]uc  1 s 8 F2596 ]
+"186
+[v plot@F2598 F2598 `[8]uc  1 s 8 F2598 ]
+"187
+[v plot@F2600 F2600 `[8]uc  1 s 8 F2600 ]
+"257
+} 0
+"79 C:\Users\Jia An\MPLABXProjects\project.X\ball.c
+[v _initial initial `(v  1 e 1 0 ]
+{
+"81
+[v initial@k k `i  1 a 2 4 ]
+"88
+} 0
+"134 C:\Users\Jia An\MPLABXProjects\project.X\led-metrix.c
+[v _init_max7219 init_max7219 `(v  1 e 1 0 ]
+{
+"180
+} 0
+"122
+[v _clear_matrix clear_matrix `(v  1 e 1 0 ]
+{
+"125
+[v clear_matrix@i i `i  1 a 2 6 ]
+"132
+} 0
+"114
+[v _set_register4 set_register4 `(v  1 e 1 0 ]
+{
+[v set_register4@address address `uc  1 a 1 wreg ]
+[v set_register4@address address `uc  1 a 1 wreg ]
+[v set_register4@value value `uc  1 p 1 4 ]
+"116
+[v set_register4@address address `uc  1 a 1 5 ]
+"121
+} 0
+"66
+[v _shiftOut4 shiftOut4 `(v  1 e 1 0 ]
+{
+[v shiftOut4@bitOrder bitOrder `uc  1 a 1 wreg ]
+"68
+[v shiftOut4@i i `uc  1 a 1 3 ]
+"66
+[v shiftOut4@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v shiftOut4@val val `uc  1 p 1 0 ]
+"70
+[v shiftOut4@bitOrder bitOrder `uc  1 a 1 2 ]
+"86
+} 0
+"106
+[v _set_register3 set_register3 `(v  1 e 1 0 ]
+{
+[v set_register3@address address `uc  1 a 1 wreg ]
+[v set_register3@address address `uc  1 a 1 wreg ]
+[v set_register3@value value `uc  1 p 1 4 ]
+"108
+[v set_register3@address address `uc  1 a 1 5 ]
+"113
+} 0
+"45
+[v _shiftOut3 shiftOut3 `(v  1 e 1 0 ]
+{
+[v shiftOut3@bitOrder bitOrder `uc  1 a 1 wreg ]
+"47
+[v shiftOut3@i i `uc  1 a 1 3 ]
+"45
+[v shiftOut3@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v shiftOut3@val val `uc  1 p 1 0 ]
+"49
+[v shiftOut3@bitOrder bitOrder `uc  1 a 1 2 ]
+"65
+} 0
+"98
+[v _set_register2 set_register2 `(v  1 e 1 0 ]
+{
+[v set_register2@address address `uc  1 a 1 wreg ]
+[v set_register2@address address `uc  1 a 1 wreg ]
+[v set_register2@value value `uc  1 p 1 4 ]
+"100
+[v set_register2@address address `uc  1 a 1 5 ]
+"105
+} 0
+"24
+[v _shiftOut2 shiftOut2 `(v  1 e 1 0 ]
+{
+[v shiftOut2@bitOrder bitOrder `uc  1 a 1 wreg ]
+"26
+[v shiftOut2@i i `uc  1 a 1 3 ]
+"24
+[v shiftOut2@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v shiftOut2@val val `uc  1 p 1 0 ]
+"28
+[v shiftOut2@bitOrder bitOrder `uc  1 a 1 2 ]
+"44
+} 0
+"90
+[v _set_register1 set_register1 `(v  1 e 1 0 ]
+{
+[v set_register1@address address `uc  1 a 1 wreg ]
+[v set_register1@address address `uc  1 a 1 wreg ]
+[v set_register1@value value `uc  1 p 1 4 ]
+"92
+[v set_register1@address address `uc  1 a 1 5 ]
+"97
+} 0
+"3
+[v _shiftOut1 shiftOut1 `(v  1 e 1 0 ]
+{
+[v shiftOut1@bitOrder bitOrder `uc  1 a 1 wreg ]
+"5
+[v shiftOut1@i i `uc  1 a 1 3 ]
+"3
+[v shiftOut1@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v shiftOut1@val val `uc  1 p 1 0 ]
+"7
+[v shiftOut1@bitOrder bitOrder `uc  1 a 1 2 ]
+"23
+} 0
+"89 C:\Users\Jia An\MPLABXProjects\project.X\ball.c
+[v _ball ball `(v  1 e 1 0 ]
+{
+"91
+[v ball@j j `i  1 a 2 14 ]
+[v ball@i i `i  1 a 2 12 ]
+"121
+} 0
+"9
+[v _move_ball move_ball `(v  1 e 1 0 ]
+{
+"50
+[v move_ball@rebound rebound `i  1 a 2 6 ]
+"12
+[v move_ball@y_direct y_direct `i  1 a 2 4 ]
+"11
+[v move_ball@x_direct x_direct `i  1 a 2 2 ]
+"77
+} 0
+"141 C:\Users\Jia An\MPLABXProjects\project.X\main.c
+[v _ISR ISR `IIH(v  1 e 1 0 ]
+{
+"160
+} 0
+"182 C:\Users\Jia An\MPLABXProjects\project.X\led-metrix.c
+[v i2_plot plot `(v  1 e 1 0 ]
+{
+[v i2plot@char_pattern4 plot `[8]uc  1 a 8 36 ]
+[v i2plot@char_pattern3 plot `[8]uc  1 a 8 28 ]
+[v i2plot@char_pattern2 plot `[8]uc  1 a 8 20 ]
+[v i2plot@char_pattern1 plot `[8]uc  1 a 8 12 ]
+[v i2plot@i plot `i  1 a 2 46 ]
+[v i2plot@j plot `i  1 a 2 44 ]
+[v i2plot@pattern pattern `*.35[16]uc  1 p 2 6 ]
+"257
+} 0
+"114
+[v i2_set_register4 set_register4 `(v  1 e 1 0 ]
+{
+[v i2set_register4@address address `uc  1 a 1 wreg ]
+[v i2set_register4@address address `uc  1 a 1 wreg ]
+[v i2set_register4@value value `uc  1 p 1 4 ]
+"116
+[v i2set_register4@address address `uc  1 a 1 5 ]
+"121
+} 0
+"66
+[v i2_shiftOut4 shiftOut4 `(v  1 e 1 0 ]
+{
+[v i2shiftOut4@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v i2shiftOut4@i shiftOut4 `uc  1 a 1 3 ]
+[v i2shiftOut4@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v i2shiftOut4@val val `uc  1 p 1 0 ]
+"70
+[v i2shiftOut4@bitOrder bitOrder `uc  1 a 1 2 ]
+"86
+} 0
+"106
+[v i2_set_register3 set_register3 `(v  1 e 1 0 ]
+{
+[v i2set_register3@address address `uc  1 a 1 wreg ]
+[v i2set_register3@address address `uc  1 a 1 wreg ]
+[v i2set_register3@value value `uc  1 p 1 4 ]
+"108
+[v i2set_register3@address address `uc  1 a 1 5 ]
+"113
+} 0
+"45
+[v i2_shiftOut3 shiftOut3 `(v  1 e 1 0 ]
+{
+[v i2shiftOut3@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v i2shiftOut3@i shiftOut3 `uc  1 a 1 3 ]
+[v i2shiftOut3@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v i2shiftOut3@val val `uc  1 p 1 0 ]
+"49
+[v i2shiftOut3@bitOrder bitOrder `uc  1 a 1 2 ]
+"65
+} 0
+"98
+[v i2_set_register2 set_register2 `(v  1 e 1 0 ]
+{
+[v i2set_register2@address address `uc  1 a 1 wreg ]
+[v i2set_register2@address address `uc  1 a 1 wreg ]
+[v i2set_register2@value value `uc  1 p 1 4 ]
+"100
+[v i2set_register2@address address `uc  1 a 1 5 ]
+"105
+} 0
+"24
+[v i2_shiftOut2 shiftOut2 `(v  1 e 1 0 ]
+{
+[v i2shiftOut2@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v i2shiftOut2@i shiftOut2 `uc  1 a 1 3 ]
+[v i2shiftOut2@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v i2shiftOut2@val val `uc  1 p 1 0 ]
+"28
+[v i2shiftOut2@bitOrder bitOrder `uc  1 a 1 2 ]
+"44
+} 0
+"90
+[v i2_set_register1 set_register1 `(v  1 e 1 0 ]
+{
+[v i2set_register1@address address `uc  1 a 1 wreg ]
+[v i2set_register1@address address `uc  1 a 1 wreg ]
+[v i2set_register1@value value `uc  1 p 1 4 ]
+"92
+[v i2set_register1@address address `uc  1 a 1 5 ]
+"97
+} 0
+"3
+[v i2_shiftOut1 shiftOut1 `(v  1 e 1 0 ]
+{
+[v i2shiftOut1@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v i2shiftOut1@i shiftOut1 `uc  1 a 1 3 ]
+[v i2shiftOut1@bitOrder bitOrder `uc  1 a 1 wreg ]
+[v i2shiftOut1@val val `uc  1 p 1 0 ]
+"7
+[v i2shiftOut1@bitOrder bitOrder `uc  1 a 1 2 ]
+"23
+} 0
+"122 C:\Users\Jia An\MPLABXProjects\project.X\ball.c
+[v _board board `(v  1 e 1 0 ]
+{
+[v board@left_up left_up `uc  1 a 1 wreg ]
+"124
+[v board@i i `i  1 a 2 8 ]
+"171
+[v board@k k `i  1 a 2 6 ]
+"122
+[v board@left_up left_up `uc  1 a 1 wreg ]
+[v board@left_down left_down `uc  1 p 1 0 ]
+[v board@right_up right_up `uc  1 p 1 1 ]
+[v board@right_down right_down `uc  1 p 1 2 ]
+"131
+[v board@left_up left_up `uc  1 a 1 5 ]
+"180
+} 0
