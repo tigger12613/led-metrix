@@ -12,7 +12,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include<xc.h>
-int LED[16][16] = {0};
+unsigned char LED[16][16] = {0};
 int left_board[16] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 int right_board[16] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 int ball_x=4;
