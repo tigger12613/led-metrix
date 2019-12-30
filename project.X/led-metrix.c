@@ -187,9 +187,9 @@ void plot(unsigned char pattern[16][16])
     unsigned char char_pattern3[8]={0};
     unsigned char char_pattern4[8]={0};
     
-    for(i=0;i<8;i++)
+    for(i=0;i<8;++i)
     {
-        for(j=0;j<8;j++)
+        for(j=0;j<8;++j)
         {
             char_pattern1[i] <<= 1;
             if(pattern[i][j]==1)
@@ -202,16 +202,16 @@ void plot(unsigned char pattern[16][16])
     {
         for(j=0;j<8;j++)
         {
-            char_pattern2[i] <<= 1;
-            if(pattern[i][j+8]==1)
+            char_pattern2[7-i] <<= 1;
+            if(pattern[i][7-j+8]==1)
             {
-                char_pattern2[i] += 1;
+                char_pattern2[7-i] += 1;
             }
         }
     }
-    for(i=0;i<8;i++)
+    for(i=0;i<8;++i)
     {
-        for(j=0;j<8;j++)
+        for(j=0;j<8;++j)
         {
             char_pattern3[i] <<= 1;
             if(pattern[i+8][j]==1)
@@ -224,10 +224,10 @@ void plot(unsigned char pattern[16][16])
     {
         for(j=0;j<8;j++)
         {
-            char_pattern4[i] <<= 1;
-            if(pattern[i+8][j+8]==1)
+            char_pattern4[7-i] <<= 1;
+            if(pattern[i+8][7-j+8]==1)
             {
-                char_pattern4[i] += 1;
+                char_pattern4[7-i] += 1;
             }
         }
     }

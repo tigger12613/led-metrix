@@ -1079,7 +1079,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _char_pattern4 `uc ~T0 @X0 -> 8 `i a ]
 [e = _char_pattern4 F2600 ]
 "190
-[; ;led-metrix.c: 190:     for(i=0;i<8;i++)
+[; ;led-metrix.c: 190:     for(i=0;i<8;++i)
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 8 `i 315  ]
@@ -1089,7 +1089,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;led-metrix.c: 191:     {
 {
 "192
-[; ;led-metrix.c: 192:         for(j=0;j<8;j++)
+[; ;led-metrix.c: 192:         for(j=0;j<8;++j)
 {
 [e = _j -> 0 `i ]
 [e $ < _j -> 8 `i 318  ]
@@ -1117,14 +1117,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "199
 [; ;led-metrix.c: 199:         }
 }
-[e ++ _j -> 1 `i ]
+[e =+ _j -> 1 `i ]
 [e $ < _j -> 8 `i 318  ]
 [e :U 319 ]
 }
 "200
 [; ;led-metrix.c: 200:     }
 }
-[e ++ _i -> 1 `i ]
+[e =+ _i -> 1 `i ]
 [e $ < _i -> 8 `i 315  ]
 [e :U 316 ]
 }
@@ -1149,17 +1149,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;led-metrix.c: 204:         {
 {
 "205
-[; ;led-metrix.c: 205:             char_pattern2[i] <<= 1;
-[e =<< *U + &U _char_pattern2 * -> -> _i `ui `ux -> -> # *U &U _char_pattern2 `ui `ux -> -> 1 `i `uc ]
+[; ;led-metrix.c: 205:             char_pattern2[7-i] <<= 1;
+[e =<< *U + &U _char_pattern2 * -> -> - -> 7 `i _i `ui `ux -> -> # *U &U _char_pattern2 `ui `ux -> -> 1 `i `uc ]
 "206
-[; ;led-metrix.c: 206:             if(pattern[i][j+8]==1)
-[e $ ! == -> *U + &U *U + _pattern * -> _i `x -> * -> # *U &U *U _pattern `ui -> 16 `i `x * -> + _j -> 8 `i `x -> -> # *U &U *U + _pattern * -> _i `x -> * -> # *U &U *U _pattern `ui -> 16 `i `x `i `x `i -> 1 `i 328  ]
+[; ;led-metrix.c: 206:             if(pattern[i][7-j+8]==1)
+[e $ ! == -> *U + &U *U + _pattern * -> _i `x -> * -> # *U &U *U _pattern `ui -> 16 `i `x * -> + - -> 7 `i _j -> 8 `i `x -> -> # *U &U *U + _pattern * -> _i `x -> * -> # *U &U *U _pattern `ui -> 16 `i `x `i `x `i -> 1 `i 328  ]
 "207
 [; ;led-metrix.c: 207:             {
 {
 "208
-[; ;led-metrix.c: 208:                 char_pattern2[i] += 1;
-[e =+ *U + &U _char_pattern2 * -> -> _i `ui `ux -> -> # *U &U _char_pattern2 `ui `ux -> -> 1 `i `uc ]
+[; ;led-metrix.c: 208:                 char_pattern2[7-i] += 1;
+[e =+ *U + &U _char_pattern2 * -> -> - -> 7 `i _i `ui `ux -> -> # *U &U _char_pattern2 `ui `ux -> -> 1 `i `uc ]
 "209
 [; ;led-metrix.c: 209:             }
 }
@@ -1179,7 +1179,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 323 ]
 }
 "212
-[; ;led-metrix.c: 212:     for(i=0;i<8;i++)
+[; ;led-metrix.c: 212:     for(i=0;i<8;++i)
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 8 `i 329  ]
@@ -1189,7 +1189,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;led-metrix.c: 213:     {
 {
 "214
-[; ;led-metrix.c: 214:         for(j=0;j<8;j++)
+[; ;led-metrix.c: 214:         for(j=0;j<8;++j)
 {
 [e = _j -> 0 `i ]
 [e $ < _j -> 8 `i 332  ]
@@ -1217,14 +1217,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "221
 [; ;led-metrix.c: 221:         }
 }
-[e ++ _j -> 1 `i ]
+[e =+ _j -> 1 `i ]
 [e $ < _j -> 8 `i 332  ]
 [e :U 333 ]
 }
 "222
 [; ;led-metrix.c: 222:     }
 }
-[e ++ _i -> 1 `i ]
+[e =+ _i -> 1 `i ]
 [e $ < _i -> 8 `i 329  ]
 [e :U 330 ]
 }
@@ -1249,17 +1249,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;led-metrix.c: 226:         {
 {
 "227
-[; ;led-metrix.c: 227:             char_pattern4[i] <<= 1;
-[e =<< *U + &U _char_pattern4 * -> -> _i `ui `ux -> -> # *U &U _char_pattern4 `ui `ux -> -> 1 `i `uc ]
+[; ;led-metrix.c: 227:             char_pattern4[7-i] <<= 1;
+[e =<< *U + &U _char_pattern4 * -> -> - -> 7 `i _i `ui `ux -> -> # *U &U _char_pattern4 `ui `ux -> -> 1 `i `uc ]
 "228
-[; ;led-metrix.c: 228:             if(pattern[i+8][j+8]==1)
-[e $ ! == -> *U + &U *U + _pattern * -> + _i -> 8 `i `x -> * -> # *U &U *U _pattern `ui -> 16 `i `x * -> + _j -> 8 `i `x -> -> # *U &U *U + _pattern * -> + _i -> 8 `i `x -> * -> # *U &U *U _pattern `ui -> 16 `i `x `i `x `i -> 1 `i 342  ]
+[; ;led-metrix.c: 228:             if(pattern[i+8][7-j+8]==1)
+[e $ ! == -> *U + &U *U + _pattern * -> + _i -> 8 `i `x -> * -> # *U &U *U _pattern `ui -> 16 `i `x * -> + - -> 7 `i _j -> 8 `i `x -> -> # *U &U *U + _pattern * -> + _i -> 8 `i `x -> * -> # *U &U *U _pattern `ui -> 16 `i `x `i `x `i -> 1 `i 342  ]
 "229
 [; ;led-metrix.c: 229:             {
 {
 "230
-[; ;led-metrix.c: 230:                 char_pattern4[i] += 1;
-[e =+ *U + &U _char_pattern4 * -> -> _i `ui `ux -> -> # *U &U _char_pattern4 `ui `ux -> -> 1 `i `uc ]
+[; ;led-metrix.c: 230:                 char_pattern4[7-i] += 1;
+[e =+ *U + &U _char_pattern4 * -> -> - -> 7 `i _i `ui `ux -> -> # *U &U _char_pattern4 `ui `ux -> -> 1 `i `uc ]
 "231
 [; ;led-metrix.c: 231:             }
 }
