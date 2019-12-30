@@ -497,6 +497,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _ball_last_y
 -> 5 `i
 ]
+"26
+[; ;./ball.h: 26: unsigned char *endBall;
+[v _endBall `*uc ~T0 @X0 1 e ]
 "3 ball.c
 [; ;ball.c: 3: void Delay(unsigned int secs)
 [v _Delay `(v ~T0 @X0 1 ef1`ui ]
@@ -882,160 +885,211 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 324 ]
 }
 "139
-[; ;ball.c: 139:   }
+[; ;ball.c: 139:             if(left_board[15]==1)
+[e $ ! == *U + &U _left_board * -> -> -> 15 `i `ui `ux -> -> # *U &U _left_board `ui `ux -> 1 `i 326  ]
+"140
+[; ;ball.c: 140:                 left_board[15]=0;
+[e = *U + &U _left_board * -> -> -> 15 `i `ui `ux -> -> # *U &U _left_board `ui `ux -> 0 `i ]
+[e :U 326 ]
+"141
+[; ;ball.c: 141:   }
 }
 [e :U 322 ]
-"140
-[; ;ball.c: 140:  }
+"142
+[; ;ball.c: 142:  }
 }
 [e :U 321 ]
-"141
-[; ;ball.c: 141:     if(left_down == 1)
-[e $ ! == -> _left_down `i -> 1 `i 326  ]
-"142
-[; ;ball.c: 142:     {
-{
 "143
-[; ;ball.c: 143:         if(left_board[15] != 1)
-[e $ ! != *U + &U _left_board * -> -> -> 15 `i `ui `ux -> -> # *U &U _left_board `ui `ux -> 1 `i 327  ]
+[; ;ball.c: 143:     if(left_down == 1)
+[e $ ! == -> _left_down `i -> 1 `i 327  ]
 "144
-[; ;ball.c: 144:         {
+[; ;ball.c: 144:     {
 {
 "145
-[; ;ball.c: 145:             for(i=15;i>0;i--)
-{
-[e = _i -> 15 `i ]
-[e $ > _i -> 0 `i 328  ]
-[e $U 329  ]
-[e :U 328 ]
+[; ;ball.c: 145:         if(left_board[15] != 1)
+[e $ ! != *U + &U _left_board * -> -> -> 15 `i `ui `ux -> -> # *U &U _left_board `ui `ux -> 1 `i 328  ]
 "146
-[; ;ball.c: 146:             {
+[; ;ball.c: 146:         {
 {
 "147
-[; ;ball.c: 147:                 left_board[i] = left_board[i-1];
-[e = *U + &U _left_board * -> -> _i `ui `ux -> -> # *U &U _left_board `ui `ux *U + &U _left_board * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U _left_board `ui `ux ]
-"148
-[; ;ball.c: 148:             }
-}
-[e -- _i -> 1 `i ]
-[e $ > _i -> 0 `i 328  ]
-[e :U 329 ]
-}
-"149
-[; ;ball.c: 149:         }
-}
-[e :U 327 ]
-"150
-[; ;ball.c: 150:     }
-}
-[e :U 326 ]
-"151
-[; ;ball.c: 151:     if(right_up == 1)
-[e $ ! == -> _right_up `i -> 1 `i 331  ]
-"152
-[; ;ball.c: 152:     {
-{
-"153
-[; ;ball.c: 153:         if(right_board[0] != 1)
-[e $ ! != *U + &U _right_board * -> -> -> 0 `i `ui `ux -> -> # *U &U _right_board `ui `ux -> 1 `i 332  ]
-"154
-[; ;ball.c: 154:         {
-{
-"155
-[; ;ball.c: 155:             for(i=0;i<15;i++)
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 15 `i 333  ]
-[e $U 334  ]
-[e :U 333 ]
-"156
-[; ;ball.c: 156:             {
-{
-"157
-[; ;ball.c: 157:                 right_board[i] = right_board[i+1];
-[e = *U + &U _right_board * -> -> _i `ui `ux -> -> # *U &U _right_board `ui `ux *U + &U _right_board * -> -> + _i -> 1 `i `ui `ux -> -> # *U &U _right_board `ui `ux ]
-"158
-[; ;ball.c: 158:             }
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 15 `i 333  ]
-[e :U 334 ]
-}
-"159
-[; ;ball.c: 159:         }
-}
-[e :U 332 ]
-"160
-[; ;ball.c: 160:     }
-}
-[e :U 331 ]
-"161
-[; ;ball.c: 161:     if(right_up == 1)
-[e $ ! == -> _right_up `i -> 1 `i 336  ]
-"162
-[; ;ball.c: 162:     {
-{
-"163
-[; ;ball.c: 163:         if(right_board[0] != 1)
-[e $ ! != *U + &U _right_board * -> -> -> 0 `i `ui `ux -> -> # *U &U _right_board `ui `ux -> 1 `i 337  ]
-"164
-[; ;ball.c: 164:         {
-{
-"165
-[; ;ball.c: 165:             for(i=15;i>0;i--)
+[; ;ball.c: 147:             for(i=15;i>0;i--)
 {
 [e = _i -> 15 `i ]
-[e $ > _i -> 0 `i 338  ]
-[e $U 339  ]
-[e :U 338 ]
-"166
-[; ;ball.c: 166:             {
+[e $ > _i -> 0 `i 329  ]
+[e $U 330  ]
+[e :U 329 ]
+"148
+[; ;ball.c: 148:             {
 {
-"167
-[; ;ball.c: 167:                 right_board[i] = right_board[i-1];
-[e = *U + &U _right_board * -> -> _i `ui `ux -> -> # *U &U _right_board `ui `ux *U + &U _right_board * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U _right_board `ui `ux ]
-"168
-[; ;ball.c: 168:             }
+"149
+[; ;ball.c: 149:                 left_board[i] = left_board[i-1];
+[e = *U + &U _left_board * -> -> _i `ui `ux -> -> # *U &U _left_board `ui `ux *U + &U _left_board * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U _left_board `ui `ux ]
+"150
+[; ;ball.c: 150:             }
 }
 [e -- _i -> 1 `i ]
-[e $ > _i -> 0 `i 338  ]
-[e :U 339 ]
+[e $ > _i -> 0 `i 329  ]
+[e :U 330 ]
 }
-"169
-[; ;ball.c: 169:         }
+"151
+[; ;ball.c: 151:             if(left_board[0]==1)
+[e $ ! == *U + &U _left_board * -> -> -> 0 `i `ui `ux -> -> # *U &U _left_board `ui `ux -> 1 `i 332  ]
+"152
+[; ;ball.c: 152:                 left_board[0]=0;
+[e = *U + &U _left_board * -> -> -> 0 `i `ui `ux -> -> # *U &U _left_board `ui `ux -> 0 `i ]
+[e :U 332 ]
+"153
+[; ;ball.c: 153:         }
 }
-[e :U 337 ]
-"170
-[; ;ball.c: 170:     }
+[e :U 328 ]
+"154
+[; ;ball.c: 154:     }
 }
-[e :U 336 ]
-"171
-[; ;ball.c: 171:     int k;
-[v _k `i ~T0 @X0 1 a ]
-"172
-[; ;ball.c: 172:  for(k=0;k<16;k++)
+[e :U 327 ]
+"155
+[; ;ball.c: 155:     if(right_up == 1)
+[e $ ! == -> _right_up `i -> 1 `i 333  ]
+"156
+[; ;ball.c: 156:     {
 {
-[e = _k -> 0 `i ]
-[e $ < _k -> 16 `i 341  ]
+"157
+[; ;ball.c: 157:         if(right_board[0] != 1)
+[e $ ! != *U + &U _right_board * -> -> -> 0 `i `ui `ux -> -> # *U &U _right_board `ui `ux -> 1 `i 334  ]
+"158
+[; ;ball.c: 158:         {
+{
+"159
+[; ;ball.c: 159:             for(i=0;i<15;i++)
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 15 `i 335  ]
+[e $U 336  ]
+[e :U 335 ]
+"160
+[; ;ball.c: 160:             {
+{
+"161
+[; ;ball.c: 161:                 right_board[i] = right_board[i+1];
+[e = *U + &U _right_board * -> -> _i `ui `ux -> -> # *U &U _right_board `ui `ux *U + &U _right_board * -> -> + _i -> 1 `i `ui `ux -> -> # *U &U _right_board `ui `ux ]
+"162
+[; ;ball.c: 162:             }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 15 `i 335  ]
+[e :U 336 ]
+}
+"163
+[; ;ball.c: 163:             if(right_board[15]==1)
+[e $ ! == *U + &U _right_board * -> -> -> 15 `i `ui `ux -> -> # *U &U _right_board `ui `ux -> 1 `i 338  ]
+"164
+[; ;ball.c: 164:                 right_board[15]=0;
+[e = *U + &U _right_board * -> -> -> 15 `i `ui `ux -> -> # *U &U _right_board `ui `ux -> 0 `i ]
+[e :U 338 ]
+"165
+[; ;ball.c: 165:         }
+}
+[e :U 334 ]
+"166
+[; ;ball.c: 166:     }
+}
+[e :U 333 ]
+"167
+[; ;ball.c: 167:     if(right_down == 1)
+[e $ ! == -> _right_down `i -> 1 `i 339  ]
+"168
+[; ;ball.c: 168:     {
+{
+"169
+[; ;ball.c: 169:         if(right_board[15] != 1)
+[e $ ! != *U + &U _right_board * -> -> -> 15 `i `ui `ux -> -> # *U &U _right_board `ui `ux -> 1 `i 340  ]
+"170
+[; ;ball.c: 170:         {
+{
+"171
+[; ;ball.c: 171:             for(i=15;i>0;i--)
+{
+[e = _i -> 15 `i ]
+[e $ > _i -> 0 `i 341  ]
 [e $U 342  ]
 [e :U 341 ]
-"173
-[; ;ball.c: 173:  {
+"172
+[; ;ball.c: 172:             {
 {
+"173
+[; ;ball.c: 173:                 right_board[i] = right_board[i-1];
+[e = *U + &U _right_board * -> -> _i `ui `ux -> -> # *U &U _right_board `ui `ux *U + &U _right_board * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U _right_board `ui `ux ]
 "174
-[; ;ball.c: 174:   LED[k][0] = left_board[k];
-[e = *U + &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux `ui `ux -> *U + &U _left_board * -> -> _k `ui `ux -> -> # *U &U _left_board `ui `ux `uc ]
-"175
-[; ;ball.c: 175:   LED[k][15] = right_board[k];
-[e = *U + &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux * -> -> -> 15 `i `ui `ux -> -> # *U &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux `ui `ux -> *U + &U _right_board * -> -> _k `ui `ux -> -> # *U &U _right_board `ui `ux `uc ]
-"177
-[; ;ball.c: 177:  }
+[; ;ball.c: 174:             }
 }
-[e ++ _k -> 1 `i ]
-[e $ < _k -> 16 `i 341  ]
+[e -- _i -> 1 `i ]
+[e $ > _i -> 0 `i 341  ]
 [e :U 342 ]
 }
+"175
+[; ;ball.c: 175:             if(right_board[0]==1)
+[e $ ! == *U + &U _right_board * -> -> -> 0 `i `ui `ux -> -> # *U &U _right_board `ui `ux -> 1 `i 344  ]
+"176
+[; ;ball.c: 176:                 right_board[0]=0;
+[e = *U + &U _right_board * -> -> -> 0 `i `ui `ux -> -> # *U &U _right_board `ui `ux -> 0 `i ]
+[e :U 344 ]
+"177
+[; ;ball.c: 177:         }
+}
+[e :U 340 ]
+"178
+[; ;ball.c: 178:     }
+}
+[e :U 339 ]
+"179
+[; ;ball.c: 179:     int k;
+[v _k `i ~T0 @X0 1 a ]
 "180
-[; ;ball.c: 180: }
+[; ;ball.c: 180:  for(k=0;k<16;k++)
+{
+[e = _k -> 0 `i ]
+[e $ < _k -> 16 `i 345  ]
+[e $U 346  ]
+[e :U 345 ]
+"181
+[; ;ball.c: 181:  {
+{
+"182
+[; ;ball.c: 182:   LED[k][0] = 0;
+[e = *U + &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+"183
+[; ;ball.c: 183:   LED[k][15] = 0;
+[e = *U + &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux * -> -> -> 15 `i `ui `ux -> -> # *U &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+"185
+[; ;ball.c: 185:  }
+}
+[e ++ _k -> 1 `i ]
+[e $ < _k -> 16 `i 345  ]
+[e :U 346 ]
+}
+"186
+[; ;ball.c: 186:  for(k=0;k<16;k++)
+{
+[e = _k -> 0 `i ]
+[e $ < _k -> 16 `i 348  ]
+[e $U 349  ]
+[e :U 348 ]
+"187
+[; ;ball.c: 187:  {
+{
+"188
+[; ;ball.c: 188:   LED[k][0] = left_board[k];
+[e = *U + &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux `ui `ux -> *U + &U _left_board * -> -> _k `ui `ux -> -> # *U &U _left_board `ui `ux `uc ]
+"189
+[; ;ball.c: 189:   LED[k][15] = right_board[k];
+[e = *U + &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux * -> -> -> 15 `i `ui `ux -> -> # *U &U *U + &U _LED * -> -> _k `ui `ux -> * -> # *U &U *U &U _LED `ui -> -> 16 `i `ui `ux `ui `ux -> *U + &U _right_board * -> -> _k `ui `ux -> -> # *U &U _right_board `ui `ux `uc ]
+"191
+[; ;ball.c: 191:  }
+}
+[e ++ _k -> 1 `i ]
+[e $ < _k -> 16 `i 348  ]
+[e :U 349 ]
+}
+"194
+[; ;ball.c: 194: }
 [e :UE 320 ]
 }

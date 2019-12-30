@@ -12,7 +12,15 @@
 extern "C" {
 #endif
 
-
+unsigned char map[16][16];
+void printError();
+void updateCar();
+void updateMap();
+void initMap();
+void move(int direct);
+void updatePlayer();
+unsigned char *endSnake;
+unsigned char error;
 
 #ifdef	__cplusplus
 }

@@ -4621,6 +4621,7 @@ void board(unsigned char left_up,unsigned char left_down,unsigned char right_up,
 void ball(void);
 void move_ball(void);
 void Delay(unsigned int secs);
+unsigned char *endBall;
 # 1 "ball.c" 2
 
 
@@ -4740,6 +4741,8 @@ void board(unsigned char left_up,unsigned char left_down,unsigned char right_up,
    {
     left_board[i] = left_board[i+1];
    }
+            if(left_board[15]==1)
+                left_board[15]=0;
   }
  }
     if(left_down == 1)
@@ -4750,6 +4753,8 @@ void board(unsigned char left_up,unsigned char left_down,unsigned char right_up,
             {
                 left_board[i] = left_board[i-1];
             }
+            if(left_board[0]==1)
+                left_board[0]=0;
         }
     }
     if(right_up == 1)
@@ -4760,19 +4765,29 @@ void board(unsigned char left_up,unsigned char left_down,unsigned char right_up,
             {
                 right_board[i] = right_board[i+1];
             }
+            if(right_board[15]==1)
+                right_board[15]=0;
         }
     }
-    if(right_up == 1)
+    if(right_down == 1)
     {
-        if(right_board[0] != 1)
+        if(right_board[15] != 1)
         {
             for(i=15;i>0;i--)
             {
                 right_board[i] = right_board[i-1];
             }
+            if(right_board[0]==1)
+                right_board[0]=0;
         }
     }
     int k;
+ for(k=0;k<16;k++)
+ {
+  LED[k][0] = 0;
+  LED[k][15] = 0;
+
+ }
  for(k=0;k<16;k++)
  {
   LED[k][0] = left_board[k];

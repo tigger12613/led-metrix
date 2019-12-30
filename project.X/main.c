@@ -69,64 +69,27 @@
 #include <pic18f4520.h>
 #define count_val  255
 #define _XTAL_FREQ 1000000
-
-const unsigned char test[16][16] =
-{
-  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,
-  1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,
-  1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,
-  1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,
-  1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,
-  1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,
-  1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-};
-const unsigned char test1[16][16] =
-{
-  1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,
-  1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
-  1,0,0,0,1,0,0,0, 0,0,1,1,1,0,0,1,
-  1,0,0,1,1,0,0,0, 0,1,0,0,0,1,0,1,
-  1,0,0,0,1,0,0,0, 0,0,0,0,1,0,0,1,
-  1,0,0,0,1,0,0,0, 0,0,0,1,0,0,0,1,
-  1,0,0,0,1,0,0,0, 0,0,1,0,0,0,0,1,
-  1,0,0,1,1,1,0,0, 0,1,1,1,1,1,0,1,
-  
-  1,0,0,1,1,1,0,0, 0,0,0,0,0,0,0,1,
-  1,0,1,0,0,0,1,0, 0,0,0,1,0,0,0,1,
-  1,0,0,0,0,0,1,0, 0,0,1,0,0,0,0,1,
-  1,0,0,1,1,1,0,0, 0,1,0,1,0,0,0,1,
-  1,0,0,0,0,1,0,0, 1,1,1,1,1,1,0,1,
-  1,0,1,0,0,0,1,0, 0,0,0,1,0,0,0,1,
-  1,0,0,1,1,1,0,0, 0,0,0,1,0,0,0,1,
-  1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1
-};
-
+unsigned char end =0;
+unsigned char mode =0;
+unsigned char select =0;
+unsigned char input=9;
 unsigned char outputMap1[16][16]={
-	1,1,1,1,1,1,1,1, 0,0,0,0,0,0,0,0,
-	1,0,0,0,0,0,0,1, 0,0,0,0,0,0,0,0,
-	1,0,0,0,0,0,0,1, 0,0,0,0,0,0,0,0,
-	1,0,0,0,0,0,0,1, 0,0,0,0,0,0,0,0,
-	1,0,0,0,0,0,0,1, 0,0,0,0,0,0,0,0,
-	1,0,0,0,0,0,0,1, 0,0,0,0,0,0,0,0,
-	1,0,0,0,0,0,0,1, 0,0,0,0,0,0,0,0,
-	1,1,1,1,1,1,1,1, 0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,
+	1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,
+	1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
+	1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
+	1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
+	1,0,0,0,0,0,1,1, 1,1,1,1,1,1,0,1,
+	1,0,0,0,0,0,1,1, 1,1,1,1,1,1,0,1,
+	1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
+	1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
+    1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
+    1,0,0,0,0,0,1,1, 1,1,1,1,1,1,0,1,
+    1,0,0,0,0,0,1,1, 1,1,1,1,1,1,0,1,
+    1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
+    1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
+    1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
+    1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1,
+    1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,
 };
 
 unsigned char a,b,c,d;
@@ -143,8 +106,34 @@ void __interrupt(high_priority) ISR()
     if(TMR0IF && TMR0IE)
     {
         TMR0IF = 0;
-        board(PORTDbits.RD0,PORTDbits.RD1,PORTDbits.RD2,PORTDbits.RD3);
-        plot(LED);
+        if(mode==1){
+        if(PORTDbits.RD3)
+            move(0);
+        else if(PORTDbits.RD1)
+            move(1);
+        else if(PORTDbits.RD0)
+            move(2);
+        else if(PORTDbits.RD2)
+            move(3);
+        //updatePlayer();
+            //plot(map);
+        }
+        else if(mode==2){
+            board(PORTDbits.RD0,PORTDbits.RD1,PORTDbits.RD3,PORTDbits.RD2);
+            //plot(LED);
+        }
+        else{
+            if(PORTDbits.RD1){
+                if(select==0){
+                    mode=1;
+                }
+                else{
+                    mode=2;
+                }
+            }
+        }
+        //board(PORTDbits.RD0,PORTDbits.RD1,PORTDbits.RD2,PORTDbits.RD3);
+        //plot(LED);
         /*if(PORTDbits.RD0 == 1)
             a = 1;
         //a = PORTDbits.RD0;
@@ -160,6 +149,7 @@ void __interrupt(high_priority) ISR()
 }
 
 void main(void) {
+    int speed=1;
     TRISB = 0;
     TRISC = 0;
     TRISD = 0b00001111;
@@ -167,6 +157,9 @@ void main(void) {
     LATBbits.LATB1 = HIGH;
     LATDbits.LATD5 = HIGH;
     LATCbits.LATC5 = HIGH;
+    ADCON0=0b00000001;
+    ADCON1=0b00001110;
+    ADCON2=0b10001000;
     
     /////////////
     PORTA = 0x00;
@@ -182,16 +175,110 @@ void main(void) {
     INTCONbits.TMR0IE = 1;
     INTCONbits.TMR0IF = 0;    
     ///////////////
-    
+
+    if(select==0){
+        outputMap1[4][2]=1;
+        outputMap1[4][3]=1;
+        outputMap1[5][2]=1;
+        outputMap1[5][3]=1;
+    }
+    else{
+        outputMap1[10][2]=1;
+        outputMap1[10][3]=1;
+        outputMap1[11][2]=1;
+        outputMap1[11][3]=1;
+    }
     init_max7219();
     initial();
+    initMap();
+    endBall=&mode;
+    endSnake=&mode;
     while(1)
     {
-        ball();
+        if(mode==0){
+            speed=5;
+            ADCON0bits.GO=1;
+            if(ADRES<512){
+                select=1;
+                outputMap1[4][2]=0;
+                outputMap1[4][3]=0;
+                outputMap1[5][2]=0;
+                outputMap1[5][3]=0;
+                outputMap1[9][2]=1;
+                outputMap1[9][3]=1;
+                outputMap1[10][2]=1;
+                outputMap1[10][3]=1;
+            }
+            else{
+                select=0;
+                outputMap1[4][2]=1;
+                outputMap1[4][3]=1;
+                outputMap1[5][2]=1;
+                outputMap1[5][3]=1;
+                outputMap1[9][2]=0;
+                outputMap1[9][3]=0;
+                outputMap1[10][2]=0;
+                outputMap1[10][3]=0;
+            }
+            plot(outputMap1);
+        }
+        else if(mode==1){
+            ADCON0bits.GO=1;
+           /*if(input==0){
+                move(0);
+                input=9;
+           }
+            else if(input==1){
+                move(1);
+                input=9;
+            }
+            else if(input==2){
+                move(2);
+                input=9;
+            }
+            else if(input==3){
+                move(3);
+                input=9;
+            }*/
+            updateMap();
+            plot(map);
+            if(error==1){
+                initMap();
+                 mode=0;
+            }
+            speed=ADRES/204.6;
+        }
+        else if(mode==2){
+            ADCON0bits.GO=1;
+            ball();
+            //board(1,0,0,0);
+            plot(LED);
+            if(ball_x == 0 || ball_x == 15)
+                mode=0;
+            speed=ADRES/204.6;
+        }
+        //ball();
         //board(1,0,0,0);
-        plot(LED);
+        
         //clear_input();
-        _delay(250000);
+        switch(speed){
+            case 5:
+                _delay(250000);
+                break;
+            case 4:
+                _delay(125000);
+                break;
+            case 3:
+                _delay(100000);
+                break;
+            case 2:
+                _delay(50000);
+                break;
+            default:
+                _delay(25000);
+                break;
+        }
+        
         //if(ball_x == 0 || ball_x == 15)//end
         //{
         //    break;
@@ -199,9 +286,9 @@ void main(void) {
     }
     //initSnake(0,0);
 	//setPoint();
-    plot(LED);
-    _delay(2500000);
-    plot(test1);
+    
+    _delay(25000000);
+    //plot(test1);
     while(1){}
     
     return;

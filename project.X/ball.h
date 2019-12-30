@@ -23,5 +23,6 @@ void board(unsigned char left_up,unsigned char left_down,unsigned char right_up,
 void ball(void);
 void move_ball(void);
 void Delay(unsigned int secs);
+unsigned char *endBall;
 
 #endif	/* BALL_H */
