@@ -79,6 +79,51 @@ void move_ball(void)
 void initial(void)
 {
     int k;
+    left_board[0] = 0;
+    left_board[1] = 0;
+    left_board[2] = 0;
+    left_board[3] = 0;
+    left_board[4] = 1;
+    left_board[5] = 1;
+    left_board[6] = 1;
+    left_board[7] = 1;
+    left_board[8] = 1;
+    left_board[9] = 1;
+    left_board[10] = 1;
+    left_board[11] = 1;
+    left_board[12] = 0;
+    left_board[13] = 0;
+    left_board[14] = 0;
+    left_board[15] = 0;
+ 
+    right_board[0] = 0;
+    right_board[1] = 0;
+    right_board[2] = 0;
+    right_board[3] = 0;
+    right_board[4] = 1;
+    right_board[5] = 1;
+    right_board[6] = 1;
+    right_board[7] = 1;
+    right_board[8] = 1;
+    right_board[9] = 1;
+    right_board[10] = 1;
+    right_board[11] = 1;
+    right_board[12] = 0;
+    right_board[13] = 0;
+    right_board[14] = 0;
+    right_board[15] = 0;
+    
+    ball_x = 4;
+    ball_y = 6;
+    ball_last_x=3;
+    ball_last_y=5;
+    //int k;
+	for(k=0;k<16;k++)
+	{
+		LED[k][0] = 0;
+		LED[k][15] = 0;
+		//LED[ball_y][ball_x]=1;
+	} 
 	for(k=0;k<16;k++)
 	{
 		LED[k][0] = left_board[k];

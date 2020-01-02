@@ -7,9 +7,9 @@
 [v _move_ball move_ball `(v  1 e 1 0 ]
 "79
 [v _initial initial `(v  1 e 1 0 ]
-"89
+"134
 [v _ball ball `(v  1 e 1 0 ]
-"122
+"167
 [v _board board `(v  1 e 1 0 ]
 "7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -75,15 +75,17 @@
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "151
 [v _main main `(v  1 e 1 0 ]
-"30 C:\Users\Jia An\MPLABXProjects\project.X\snake.c
+"31 C:\Users\Jia An\MPLABXProjects\project.X\snake.c
 [v _printError printError `(v  1 e 1 0 ]
 "44
+[v _printWin printWin `(v  1 e 1 0 ]
+"59
 [v _updateCar updateCar `(v  1 e 1 0 ]
-"65
+"80
 [v _updateMap updateMap `(v  1 e 1 0 ]
-"104
+"123
 [v _initMap initMap `(v  1 e 1 0 ]
-"125
+"145
 [v _move move `(v  1 e 1 0 ]
 "13 C:\Users\Jia An\MPLABXProjects\project.X/ball.h
 [v _LED LED `[16][16]uc  1 e 256 0 ]
@@ -354,37 +356,47 @@
 [v _car car `[6][2]i  1 e 24 0 ]
 "28
 [v _error error `uc  1 e 1 0 ]
+"29
+[v _win win `uc  1 e 1 0 ]
 "151 C:\Users\Jia An\MPLABXProjects\project.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "152
 [v main@speed speed `i  1 a 2 18 ]
-"295
+"297
 } 0
-"65 C:\Users\Jia An\MPLABXProjects\project.X\snake.c
+"80 C:\Users\Jia An\MPLABXProjects\project.X\snake.c
 [v _updateMap updateMap `(v  1 e 1 0 ]
 {
-"66
+"81
 [v updateMap@j j `i  1 a 2 38 ]
 [v updateMap@i i `i  1 a 2 36 ]
-"98
+"117
 } 0
-"44
+"59
 [v _updateCar updateCar `(v  1 e 1 0 ]
 {
-"47
+"62
 [v updateCar@num num `i  1 a 2 24 ]
-"45
+"60
 [v updateCar@j j `i  1 a 2 26 ]
-"63
+"78
 } 0
-"30
+"44
+[v _printWin printWin `(v  1 e 1 0 ]
+{
+"45
+[v printWin@j j `i  1 a 2 26 ]
+[v printWin@i i `i  1 a 2 24 ]
+"56
+} 0
+"31
 [v _printError printError `(v  1 e 1 0 ]
 {
-"31
+"32
 [v printError@j j `i  1 a 2 26 ]
 [v printError@i i `i  1 a 2 24 ]
-"41
+"42
 } 0
 "182 C:\Users\Jia An\MPLABXProjects\project.X\led-metrix.c
 [v _plot plot `(v  1 e 1 0 ]
@@ -409,7 +421,7 @@
 {
 "81
 [v initial@k k `i  1 a 2 24 ]
-"88
+"133
 } 0
 "134 C:\Users\Jia An\MPLABXProjects\project.X\led-metrix.c
 [v _init_max7219 init_max7219 `(v  1 e 1 0 ]
@@ -515,15 +527,15 @@
 [v shiftOut1@bitOrder bitOrder `uc  1 a 1 22 ]
 "23
 } 0
-"104 C:\Users\Jia An\MPLABXProjects\project.X\snake.c
+"123 C:\Users\Jia An\MPLABXProjects\project.X\snake.c
 [v _initMap initMap `(v  1 e 1 0 ]
 {
-"115
+"135
 [v initMap@num num `i  1 a 2 10 ]
-"105
+"124
 [v initMap@j j `i  1 a 2 14 ]
 [v initMap@i i `i  1 a 2 12 ]
-"123
+"143
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\time.c
 [v _time time `(o  1 e 8 0 ]
@@ -573,13 +585,13 @@
 [v ___awmod@divisor divisor `i  1 p 2 56 ]
 "34
 } 0
-"89 C:\Users\Jia An\MPLABXProjects\project.X\ball.c
+"134 C:\Users\Jia An\MPLABXProjects\project.X\ball.c
 [v _ball ball `(v  1 e 1 0 ]
 {
-"91
+"136
 [v ball@j j `i  1 a 2 34 ]
 [v ball@i i `i  1 a 2 32 ]
-"121
+"166
 } 0
 "9
 [v _move_ball move_ball `(v  1 e 1 0 ]
@@ -611,27 +623,27 @@
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 9 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 8 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 55 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 54 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 0 ]
+[v ___fltol@f1 f1 `d  1 p 4 46 ]
 "70
 } 0
 "11 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 {
 "21
-[v ___fldiv@grs grs `ul  1 a 4 53 ]
+[v ___fldiv@grs grs `ul  1 a 4 7 ]
 "22
-[v ___fldiv@rem rem `ul  1 a 4 46 ]
+[v ___fldiv@rem rem `ul  1 a 4 0 ]
 "20
-[v ___fldiv@new_exp new_exp `s  1 a 2 51 ]
+[v ___fldiv@new_exp new_exp `s  1 a 2 5 ]
 "19
-[v ___fldiv@aexp aexp `uc  1 a 1 58 ]
+[v ___fldiv@aexp aexp `uc  1 a 1 12 ]
 "18
-[v ___fldiv@bexp bexp `uc  1 a 1 57 ]
+[v ___fldiv@bexp bexp `uc  1 a 1 11 ]
 "16
-[v ___fldiv@sign sign `uc  1 a 1 50 ]
+[v ___fldiv@sign sign `uc  1 a 1 4 ]
 "11
 [v ___fldiv@b b `d  1 p 4 34 ]
 [v ___fldiv@a a `d  1 p 4 38 ]
@@ -642,30 +654,30 @@
 {
 "149
 } 0
-"125 C:\Users\Jia An\MPLABXProjects\project.X\snake.c
+"145 C:\Users\Jia An\MPLABXProjects\project.X\snake.c
 [v _move move `(v  1 e 1 0 ]
 {
-"142
+"167
 [v move@j j `i  1 a 2 12 ]
 [v move@i i `i  1 a 2 10 ]
-"125
+"145
 [v move@direct direct `i  1 p 2 0 ]
-"162
+"187
 } 0
-"122 C:\Users\Jia An\MPLABXProjects\project.X\ball.c
+"167 C:\Users\Jia An\MPLABXProjects\project.X\ball.c
 [v _board board `(v  1 e 1 0 ]
 {
 [v board@left_up left_up `uc  1 a 1 wreg ]
-"124
+"169
 [v board@i i `i  1 a 2 8 ]
-"179
+"224
 [v board@k k `i  1 a 2 6 ]
-"122
+"167
 [v board@left_up left_up `uc  1 a 1 wreg ]
 [v board@left_down left_down `uc  1 p 1 0 ]
 [v board@right_up right_up `uc  1 p 1 1 ]
 [v board@right_down right_down `uc  1 p 1 2 ]
-"131
+"176
 [v board@left_up left_up `uc  1 a 1 5 ]
-"194
+"239
 } 0

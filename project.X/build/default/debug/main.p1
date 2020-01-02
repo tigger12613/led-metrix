@@ -187,12 +187,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 ./led-metrix.h
 [; ;./led-metrix.h: 47: void init_max7219();
 [v _init_max7219 `(v ~T0 @X0 0 e? ]
-"21 ./ball.h
-[; ;./ball.h: 21: void initial(void);
-[v _initial `(v ~T0 @X0 0 ef ]
 "19 ./snake.h
 [; ;./snake.h: 19: void initMap();
 [v _initMap `(v ~T0 @X0 0 e? ]
+"21 ./ball.h
+[; ;./ball.h: 21: void initial(void);
+[v _initial `(v ~T0 @X0 0 ef ]
 "4781 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h: 4781:     struct {
 [s S189 :1 `uc 1 :1 `uc 1 ]
@@ -1410,226 +1410,229 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 191:     init_max7219();
 [e ( _init_max7219 ..  ]
 "192
-[; ;main.c: 192:     initial();
-[e ( _initial ..  ]
-"193
-[; ;main.c: 193:     initMap();
-[e ( _initMap ..  ]
+[; ;main.c: 192:     init_max7219();
+[e ( _init_max7219 ..  ]
 "194
-[; ;main.c: 194:     endBall=&mode;
-[e = _endBall &U _mode ]
+[; ;main.c: 194:     initMap();
+[e ( _initMap ..  ]
 "195
-[; ;main.c: 195:     endSnake=&mode;
-[e = _endSnake &U _mode ]
+[; ;main.c: 195:     endBall=&mode;
+[e = _endBall &U _mode ]
 "196
-[; ;main.c: 196:     while(1)
-[e :U 307 ]
+[; ;main.c: 196:     endSnake=&mode;
+[e = _endSnake &U _mode ]
 "197
-[; ;main.c: 197:     {
-{
+[; ;main.c: 197:     while(1)
+[e :U 307 ]
 "198
-[; ;main.c: 198:         if(mode==0){
-[e $ ! == -> _mode `i -> 0 `i 309  ]
+[; ;main.c: 198:     {
 {
 "199
-[; ;main.c: 199:             speed=5;
-[e = _speed -> 5 `i ]
-"200
-[; ;main.c: 200:             ADCON0bits.GO=1;
-[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
-"201
-[; ;main.c: 201:             if(ADRES<512){
-[e $ ! < -> _ADRES `ui -> -> 512 `i `ui 310  ]
+[; ;main.c: 199:         if(mode==0){
+[e $ ! == -> _mode `i -> 0 `i 309  ]
 {
+"200
+[; ;main.c: 200:             speed=5;
+[e = _speed -> 5 `i ]
+"201
+[; ;main.c: 201:             initial();
+[e ( _initial ..  ]
 "202
-[; ;main.c: 202:                 select=1;
-[e = _select -> -> 1 `i `uc ]
+[; ;main.c: 202:             ADCON0bits.GO=1;
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
 "203
-[; ;main.c: 203:                 outputMap1[4][2]=0;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 203:             if(ADRES>512){
+[e $ ! > -> _ADRES `ui -> -> 512 `i `ui 310  ]
+{
 "204
-[; ;main.c: 204:                 outputMap1[4][3]=0;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 204:                 select=1;
+[e = _select -> -> 1 `i `uc ]
 "205
-[; ;main.c: 205:                 outputMap1[5][2]=0;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 205:                 outputMap1[4][2]=0;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
 "206
-[; ;main.c: 206:                 outputMap1[5][3]=0;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 206:                 outputMap1[4][3]=0;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
 "207
-[; ;main.c: 207:                 outputMap1[9][2]=1;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;main.c: 207:                 outputMap1[5][2]=0;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
 "208
-[; ;main.c: 208:                 outputMap1[9][3]=1;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;main.c: 208:                 outputMap1[5][3]=0;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
 "209
-[; ;main.c: 209:                 outputMap1[10][2]=1;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;main.c: 209:                 outputMap1[9][2]=1;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
 "210
-[; ;main.c: 210:                 outputMap1[10][3]=1;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;main.c: 210:                 outputMap1[9][3]=1;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
 "211
-[; ;main.c: 211:             }
+[; ;main.c: 211:                 outputMap1[10][2]=1;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+"212
+[; ;main.c: 212:                 outputMap1[10][3]=1;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+"213
+[; ;main.c: 213:             }
 }
 [e $U 311  ]
-"212
-[; ;main.c: 212:             else{
+"214
+[; ;main.c: 214:             else{
 [e :U 310 ]
 {
-"213
-[; ;main.c: 213:                 select=0;
-[e = _select -> -> 0 `i `uc ]
-"214
-[; ;main.c: 214:                 outputMap1[4][2]=1;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
 "215
-[; ;main.c: 215:                 outputMap1[4][3]=1;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;main.c: 215:                 select=0;
+[e = _select -> -> 0 `i `uc ]
 "216
-[; ;main.c: 216:                 outputMap1[5][2]=1;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;main.c: 216:                 outputMap1[4][2]=1;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
 "217
-[; ;main.c: 217:                 outputMap1[5][3]=1;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;main.c: 217:                 outputMap1[4][3]=1;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
 "218
-[; ;main.c: 218:                 outputMap1[9][2]=0;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 218:                 outputMap1[5][2]=1;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
 "219
-[; ;main.c: 219:                 outputMap1[9][3]=0;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 219:                 outputMap1[5][3]=1;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 5 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
 "220
-[; ;main.c: 220:                 outputMap1[10][2]=0;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 220:                 outputMap1[9][2]=0;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
 "221
-[; ;main.c: 221:                 outputMap1[10][3]=0;
-[e = *U + &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 221:                 outputMap1[9][3]=0;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 9 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
 "222
-[; ;main.c: 222:             }
+[; ;main.c: 222:                 outputMap1[10][2]=0;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+"223
+[; ;main.c: 223:                 outputMap1[10][3]=0;
+[e = *U + &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _outputMap1 * -> -> -> 10 `i `ui `ux -> * -> # *U &U *U &U _outputMap1 `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+"224
+[; ;main.c: 224:             }
 }
 [e :U 311 ]
-"223
-[; ;main.c: 223:             plot(outputMap1);
+"225
+[; ;main.c: 225:             plot(outputMap1);
 [e ( _plot (1 &U _outputMap1 ]
-"224
-[; ;main.c: 224:         }
+"226
+[; ;main.c: 226:         }
 }
 [e $U 312  ]
-"225
-[; ;main.c: 225:         else if(mode==1){
+"227
+[; ;main.c: 227:         else if(mode==1){
 [e :U 309 ]
 [e $ ! == -> _mode `i -> 1 `i 313  ]
 {
-"226
-[; ;main.c: 226:             ADCON0bits.GO=1;
+"228
+[; ;main.c: 228:             ADCON0bits.GO=1;
 [e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
-"243
-[; ;main.c: 243:             updateMap();
-[e ( _updateMap ..  ]
-"244
-[; ;main.c: 244:             plot(map);
-[e ( _plot (1 &U _map ]
 "245
-[; ;main.c: 245:             if(error==1){
+[; ;main.c: 245:             updateMap();
+[e ( _updateMap ..  ]
+"246
+[; ;main.c: 246:             plot(map);
+[e ( _plot (1 &U _map ]
+"247
+[; ;main.c: 247:             if(error==1){
 [e $ ! == -> _error `i -> 1 `i 314  ]
 {
-"246
-[; ;main.c: 246:                 initMap();
-[e ( _initMap ..  ]
-"247
-[; ;main.c: 247:                  mode=0;
-[e = _mode -> -> 0 `i `uc ]
 "248
-[; ;main.c: 248:             }
+[; ;main.c: 248:                 initMap();
+[e ( _initMap ..  ]
+"249
+[; ;main.c: 249:                  mode=0;
+[e = _mode -> -> 0 `i `uc ]
+"250
+[; ;main.c: 250:             }
 }
 [e :U 314 ]
-"249
-[; ;main.c: 249:             speed=ADRES/204.6;
+"251
+[; ;main.c: 251:             speed=ADRES/204.6;
 [e = _speed -> / -> -> _ADRES `ui `d .204.6 `i ]
-"250
-[; ;main.c: 250:         }
+"252
+[; ;main.c: 252:         }
 }
 [e $U 315  ]
-"251
-[; ;main.c: 251:         else if(mode==2){
+"253
+[; ;main.c: 253:         else if(mode==2){
 [e :U 313 ]
 [e $ ! == -> _mode `i -> 2 `i 316  ]
 {
-"252
-[; ;main.c: 252:             ADCON0bits.GO=1;
+"254
+[; ;main.c: 254:             ADCON0bits.GO=1;
 [e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
-"253
-[; ;main.c: 253:             ball();
-[e ( _ball ..  ]
 "255
-[; ;main.c: 255:             plot(LED);
-[e ( _plot (1 &U _LED ]
-"256
-[; ;main.c: 256:             if(ball_x == 0 || ball_x == 15)
-[e $ ! || == _ball_x -> 0 `i == _ball_x -> 15 `i 317  ]
+[; ;main.c: 255:             ball();
+[e ( _ball ..  ]
 "257
-[; ;main.c: 257:                 mode=0;
+[; ;main.c: 257:             plot(LED);
+[e ( _plot (1 &U _LED ]
+"258
+[; ;main.c: 258:             if(ball_x == 0 || ball_x == 15)
+[e $ ! || == _ball_x -> 0 `i == _ball_x -> 15 `i 317  ]
+"259
+[; ;main.c: 259:                 mode=0;
 [e = _mode -> -> 0 `i `uc ]
 [e :U 317 ]
-"258
-[; ;main.c: 258:             speed=ADRES/204.6;
+"260
+[; ;main.c: 260:             speed=ADRES/204.6;
 [e = _speed -> / -> -> _ADRES `ui `d .204.6 `i ]
-"259
-[; ;main.c: 259:         }
+"261
+[; ;main.c: 261:         }
 }
 [e :U 316 ]
 [e :U 315 ]
 [e :U 312 ]
-"264
-[; ;main.c: 264:         switch(speed){
+"266
+[; ;main.c: 266:         switch(speed){
 [e $U 319  ]
 {
-"265
-[; ;main.c: 265:             case 5:
-[e :U 320 ]
-"266
-[; ;main.c: 266:                 _delay(250000);
-[e ( __delay (1 -> -> 250000 `l `ul ]
 "267
-[; ;main.c: 267:                 break;
-[e $U 318  ]
+[; ;main.c: 267:             case 5:
+[e :U 320 ]
 "268
-[; ;main.c: 268:             case 4:
-[e :U 321 ]
+[; ;main.c: 268:                 _delay(250000);
+[e ( __delay (1 -> -> 250000 `l `ul ]
 "269
-[; ;main.c: 269:                 _delay(125000);
-[e ( __delay (1 -> -> 125000 `l `ul ]
+[; ;main.c: 269:                 break;
+[e $U 318  ]
 "270
-[; ;main.c: 270:                 break;
-[e $U 318  ]
+[; ;main.c: 270:             case 4:
+[e :U 321 ]
 "271
-[; ;main.c: 271:             case 3:
-[e :U 322 ]
+[; ;main.c: 271:                 _delay(125000);
+[e ( __delay (1 -> -> 125000 `l `ul ]
 "272
-[; ;main.c: 272:                 _delay(100000);
-[e ( __delay (1 -> -> 100000 `l `ul ]
+[; ;main.c: 272:                 break;
+[e $U 318  ]
 "273
-[; ;main.c: 273:                 break;
-[e $U 318  ]
+[; ;main.c: 273:             case 3:
+[e :U 322 ]
 "274
-[; ;main.c: 274:             case 2:
-[e :U 323 ]
+[; ;main.c: 274:                 _delay(100000);
+[e ( __delay (1 -> -> 100000 `l `ul ]
 "275
-[; ;main.c: 275:                 _delay(50000);
-[e ( __delay (1 -> -> 50000 `l `ul ]
+[; ;main.c: 275:                 break;
+[e $U 318  ]
 "276
-[; ;main.c: 276:                 break;
-[e $U 318  ]
+[; ;main.c: 276:             case 2:
+[e :U 323 ]
 "277
-[; ;main.c: 277:             default:
-[e :U 324 ]
+[; ;main.c: 277:                 _delay(50000);
+[e ( __delay (1 -> -> 50000 `l `ul ]
 "278
-[; ;main.c: 278:                 _delay(25000);
-[e ( __delay (1 -> -> -> 25000 `i `l `ul ]
-"279
-[; ;main.c: 279:                 break;
+[; ;main.c: 278:                 break;
 [e $U 318  ]
+"279
+[; ;main.c: 279:             default:
+[e :U 324 ]
 "280
-[; ;main.c: 280:         }
+[; ;main.c: 280:                 _delay(25000);
+[e ( __delay (1 -> -> -> 25000 `i `l `ul ]
+"281
+[; ;main.c: 281:                 break;
+[e $U 318  ]
+"282
+[; ;main.c: 282:         }
 }
 [e $U 318  ]
 [e :U 319 ]
@@ -1639,27 +1642,27 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 2 `i 323
  324 ]
 [e :U 318 ]
-"286
-[; ;main.c: 286:     }
+"288
+[; ;main.c: 288:     }
 }
 [e :U 306 ]
 [e $U 307  ]
 [e :U 308 ]
-"290
-[; ;main.c: 290:     _delay(25000000);
-[e ( __delay (1 -> -> 25000000 `l `ul ]
 "292
-[; ;main.c: 292:     while(1){}
+[; ;main.c: 292:     _delay(25000000);
+[e ( __delay (1 -> -> 25000000 `l `ul ]
+"294
+[; ;main.c: 294:     while(1){}
 [e :U 326 ]
 {
 }
 [e :U 325 ]
 [e $U 326  ]
 [e :U 327 ]
-"294
-[; ;main.c: 294:     return;
+"296
+[; ;main.c: 296:     return;
 [e $UE 303  ]
-"295
-[; ;main.c: 295: }
+"297
+[; ;main.c: 297: }
 [e :UE 303 ]
 }
