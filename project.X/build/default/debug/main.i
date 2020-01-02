@@ -4847,7 +4847,8 @@ void main(void) {
         outputMap1[11][3]=1;
     }
     init_max7219();
-    initial();
+    init_max7219();
+
     initMap();
     endBall=&mode;
     endSnake=&mode;
@@ -4855,8 +4856,9 @@ void main(void) {
     {
         if(mode==0){
             speed=5;
+            initial();
             ADCON0bits.GO=1;
-            if(ADRES<512){
+            if(ADRES>512){
                 select=1;
                 outputMap1[4][2]=0;
                 outputMap1[4][3]=0;
@@ -4882,7 +4884,7 @@ void main(void) {
         }
         else if(mode==1){
             ADCON0bits.GO=1;
-# 243 "main.c"
+# 245 "main.c"
             updateMap();
             plot(map);
             if(error==1){

@@ -333,561 +333,665 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _error
 -> -> 0 `i `uc
 ]
-"30
-[; ;snake.c: 30: void printError(){
+"29
+[; ;snake.c: 29: unsigned char win=0;
+[v _win `uc ~T0 @X0 1 e ]
+[i _win
+-> -> 0 `i `uc
+]
+"31
+[; ;snake.c: 31: void printError(){
 [v _printError `(v ~T0 @X0 1 ef ]
 {
 [e :U _printError ]
 [f ]
-"31
-[; ;snake.c: 31:  int i,j=0;
+"32
+[; ;snake.c: 32:  int i,j=0;
 [v _i `i ~T0 @X0 1 a ]
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-"33
-[; ;snake.c: 33:  for(j=0;j<16;++j){
+"34
+[; ;snake.c: 34:  for(j=0;j<16;++j){
 {
 [e = _j -> 0 `i ]
 [e $ < _j -> 16 `i 12  ]
 [e $U 13  ]
 [e :U 12 ]
 {
-"34
-[; ;snake.c: 34:   for(i=0;i<16;++i){
+"35
+[; ;snake.c: 35:   for(i=0;i<16;++i){
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 16 `i 15  ]
 [e $U 16  ]
 [e :U 15 ]
 {
-"35
-[; ;snake.c: 35:    if(i==j||i==15-j)
-[e $ ! || == _i _j == _i - -> 15 `i _j 18  ]
 "36
-[; ;snake.c: 36:     map[j][i]=1;
+[; ;snake.c: 36:    if(i==j||i==15-j)
+[e $ ! || == _i _j == _i - -> 15 `i _j 18  ]
+"37
+[; ;snake.c: 37:     map[j][i]=1;
 [e = *U + &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
 [e $U 19  ]
-"37
-[; ;snake.c: 37:    else
-[e :U 18 ]
 "38
-[; ;snake.c: 38:     map[j][i]=0;
+[; ;snake.c: 38:    else
+[e :U 18 ]
+"39
+[; ;snake.c: 39:     map[j][i]=0;
 [e = *U + &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
 [e :U 19 ]
-"39
-[; ;snake.c: 39:   }
+"40
+[; ;snake.c: 40:   }
 }
 [e =+ _i -> 1 `i ]
 [e $ < _i -> 16 `i 15  ]
 [e :U 16 ]
 }
-"40
-[; ;snake.c: 40:  }
+"41
+[; ;snake.c: 41:  }
 }
 [e =+ _j -> 1 `i ]
 [e $ < _j -> 16 `i 12  ]
 [e :U 13 ]
 }
-"41
-[; ;snake.c: 41: }
+"42
+[; ;snake.c: 42: }
 [e :UE 11 ]
 }
 "44
-[; ;snake.c: 44: void updateCar(){
+[; ;snake.c: 44: void printWin(){
+[v _printWin `(v ~T0 @X0 1 ef ]
+{
+[e :U _printWin ]
+[f ]
+"45
+[; ;snake.c: 45:  int i,j=0;
+[v _i `i ~T0 @X0 1 a ]
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+"47
+[; ;snake.c: 47:  for(j=0;j<16;++j){
+{
+[e = _j -> 0 `i ]
+[e $ < _j -> 16 `i 21  ]
+[e $U 22  ]
+[e :U 21 ]
+{
+"48
+[; ;snake.c: 48:   for(i=0;i<16;++i){
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 16 `i 24  ]
+[e $U 25  ]
+[e :U 24 ]
+{
+"49
+[; ;snake.c: 49:    if(i==0||i==15||j==0||j==15)
+[e $ ! || || || == _i -> 0 `i == _i -> 15 `i == _j -> 0 `i == _j -> 15 `i 27  ]
+"50
+[; ;snake.c: 50:     map[j][i]=1;
+[e = *U + &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[e $U 28  ]
+"51
+[; ;snake.c: 51:    else
+[e :U 27 ]
+"52
+[; ;snake.c: 52:     map[j][i]=0;
+[e = *U + &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[e :U 28 ]
+"53
+[; ;snake.c: 53:   }
+}
+[e =+ _i -> 1 `i ]
+[e $ < _i -> 16 `i 24  ]
+[e :U 25 ]
+}
+"54
+[; ;snake.c: 54:  }
+}
+[e =+ _j -> 1 `i ]
+[e $ < _j -> 16 `i 21  ]
+[e :U 22 ]
+}
+"55
+[; ;snake.c: 55:     error=1;
+[e = _error -> -> 1 `i `uc ]
+"56
+[; ;snake.c: 56: }
+[e :UE 20 ]
+}
+"59
+[; ;snake.c: 59: void updateCar(){
 [v _updateCar `(v ~T0 @X0 1 ef ]
 {
 [e :U _updateCar ]
 [f ]
-"45
-[; ;snake.c: 45:  int i,j;
+"60
+[; ;snake.c: 60:  int i,j;
 [v _i `i ~T0 @X0 1 a ]
 [v _j `i ~T0 @X0 1 a ]
-"46
-[; ;snake.c: 46:  for(j=0;j<6;++j){
+"61
+[; ;snake.c: 61:  for(j=0;j<6;++j){
 {
 [e = _j -> 0 `i ]
-[e $ < _j -> 6 `i 21  ]
-[e $U 22  ]
-[e :U 21 ]
+[e $ < _j -> 6 `i 30  ]
+[e $U 31  ]
+[e :U 30 ]
 {
-"47
-[; ;snake.c: 47:   int num=(j%2==0)?1:-1;
+"62
+[; ;snake.c: 62:   int num=(j%2==0)?1:-1;
 [v _num `i ~T0 @X0 1 a ]
 [e = _num ? == % _j -> 2 `i -> 0 `i : -> 1 `i -U -> 1 `i ]
-"48
-[; ;snake.c: 48:   car[j][0]+=num;
-[e =+ *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _num ]
-"49
-[; ;snake.c: 49:   car[j][1]+=num;
-[e =+ *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _num ]
-"50
-[; ;snake.c: 50:   if(j%2==0){
-[e $ ! == % _j -> 2 `i -> 0 `i 24  ]
-{
-"51
-[; ;snake.c: 51:    if(car[j][1]>15){
-[e $ ! > *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -> 15 `i 25  ]
-{
-"52
-[; ;snake.c: 52:     car[j][0]=0;
-[e = *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -> 0 `i ]
-"53
-[; ;snake.c: 53:     car[j][1]=-2;
-[e = *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -U -> 2 `i ]
-"54
-[; ;snake.c: 54:    }
-}
-[e :U 25 ]
-"55
-[; ;snake.c: 55:   }
-}
-[e $U 26  ]
-"56
-[; ;snake.c: 56:   else{
-[e :U 24 ]
-{
-"57
-[; ;snake.c: 57:    if(car[j][1]<0){
-[e $ ! < *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -> 0 `i 27  ]
-{
-"58
-[; ;snake.c: 58:     car[j][0]=15;
-[e = *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -> 15 `i ]
-"59
-[; ;snake.c: 59:     car[j][1]=17;
-[e = *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -> 17 `i ]
-"60
-[; ;snake.c: 60:    }
-}
-[e :U 27 ]
-"61
-[; ;snake.c: 61:   }
-}
-[e :U 26 ]
-"62
-[; ;snake.c: 62:  }
-}
-[e =+ _j -> 1 `i ]
-[e $ < _j -> 6 `i 21  ]
-[e :U 22 ]
-}
 "63
-[; ;snake.c: 63: }
-[e :UE 20 ]
-}
+[; ;snake.c: 63:   car[j][0]+=num;
+[e =+ *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _num ]
+"64
+[; ;snake.c: 64:   car[j][1]+=num;
+[e =+ *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _num ]
 "65
-[; ;snake.c: 65: void updateMap(){
-[v _updateMap `(v ~T0 @X0 1 ef ]
+[; ;snake.c: 65:   if(j%2==0){
+[e $ ! == % _j -> 2 `i -> 0 `i 33  ]
 {
-[e :U _updateMap ]
-[f ]
 "66
-[; ;snake.c: 66:  int i,j;
-[v _i `i ~T0 @X0 1 a ]
-[v _j `i ~T0 @X0 1 a ]
+[; ;snake.c: 66:    if(car[j][1]>15){
+[e $ ! > *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -> 15 `i 34  ]
+{
 "67
-[; ;snake.c: 67:     if(error!=1)
-[e $ ! != -> _error `i -> 1 `i 29  ]
+[; ;snake.c: 67:     car[j][0]=0;
+[e = *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -> 0 `i ]
 "68
-[; ;snake.c: 68:         updateCar();
-[e ( _updateCar ..  ]
-[e :U 29 ]
+[; ;snake.c: 68:     car[j][1]=-2;
+[e = *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -U -> 2 `i ]
 "69
-[; ;snake.c: 69:  if(error==1){
-[e $ ! == -> _error `i -> 1 `i 30  ]
-{
-"70
-[; ;snake.c: 70:   printError();
-[e ( _printError ..  ]
-"71
-[; ;snake.c: 71:   return;
-[e $UE 28  ]
-"72
-[; ;snake.c: 72:  }
+[; ;snake.c: 69:    }
 }
-[e :U 30 ]
-"73
-[; ;snake.c: 73:  for(j=0;j<16;++j){
-{
-[e = _j -> 0 `i ]
-[e $ < _j -> 16 `i 31  ]
-[e $U 32  ]
-[e :U 31 ]
-{
-"74
-[; ;snake.c: 74:   for(i=0;i<16;++i){
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 16 `i 34  ]
-[e $U 35  ]
 [e :U 34 ]
+"70
+[; ;snake.c: 70:   }
+}
+[e $U 35  ]
+"71
+[; ;snake.c: 71:   else{
+[e :U 33 ]
 {
+"72
+[; ;snake.c: 72:    if(car[j][1]<0){
+[e $ ! < *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -> 0 `i 36  ]
+{
+"73
+[; ;snake.c: 73:     car[j][0]=15;
+[e = *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -> 15 `i ]
+"74
+[; ;snake.c: 74:     car[j][1]=17;
+[e = *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux -> 17 `i ]
 "75
-[; ;snake.c: 75:    map[j][i]=0;
-[e = *U + &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[; ;snake.c: 75:    }
+}
+[e :U 36 ]
 "76
 [; ;snake.c: 76:   }
 }
-[e =+ _i -> 1 `i ]
-[e $ < _i -> 16 `i 34  ]
 [e :U 35 ]
-}
 "77
 [; ;snake.c: 77:  }
 }
 [e =+ _j -> 1 `i ]
-[e $ < _j -> 16 `i 31  ]
-[e :U 32 ]
+[e $ < _j -> 6 `i 30  ]
+[e :U 31 ]
 }
 "78
-[; ;snake.c: 78:  for(j=0;j<6;++j){
-{
-[e = _j -> 0 `i ]
-[e $ < _j -> 6 `i 37  ]
-[e $U 38  ]
-[e :U 37 ]
-{
-"79
-[; ;snake.c: 79:   for(i=0;i<3;++i){
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 40  ]
-[e $U 41  ]
-[e :U 40 ]
-{
+[; ;snake.c: 78: }
+[e :UE 29 ]
+}
 "80
-[; ;snake.c: 80:    if(j%2==0){
-[e $ ! == % _j -> 2 `i -> 0 `i 43  ]
+[; ;snake.c: 80: void updateMap(){
+[v _updateMap `(v ~T0 @X0 1 ef ]
 {
+[e :U _updateMap ]
+[f ]
 "81
-[; ;snake.c: 81:     if(car[j][0]-i<=15){
-[e $ ! <= - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i -> 15 `i 44  ]
-{
+[; ;snake.c: 81:  int i,j;
+[v _i `i ~T0 @X0 1 a ]
+[v _j `i ~T0 @X0 1 a ]
 "82
-[; ;snake.c: 82:      map[2+2*j][car[j][0]-i]=1;
-[e = *U + &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i `ui `ux -> -> # *U &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
-"83
-[; ;snake.c: 83:      if(player[1]==2+2*j && player[0]==car[j][0]-i)
-[e $ ! && == -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i + -> 2 `i * -> 2 `i _j == -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `i - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i 45  ]
-"84
-[; ;snake.c: 84:       error=1;
-[e = _error -> -> 1 `i `uc ]
-[e :U 45 ]
-"85
-[; ;snake.c: 85:     }
-}
-[e :U 44 ]
-"86
-[; ;snake.c: 86:    }
-}
-[e $U 46  ]
-"87
-[; ;snake.c: 87:    else{
-[e :U 43 ]
+[; ;snake.c: 82:     if(win==1){
+[e $ ! == -> _win `i -> 1 `i 38  ]
 {
+"83
+[; ;snake.c: 83:   printWin();
+[e ( _printWin ..  ]
+"84
+[; ;snake.c: 84:   return;
+[e $UE 37  ]
+"85
+[; ;snake.c: 85:  }
+}
+[e :U 38 ]
+"86
+[; ;snake.c: 86:     if(error!=1)
+[e $ ! != -> _error `i -> 1 `i 39  ]
+"87
+[; ;snake.c: 87:         updateCar();
+[e ( _updateCar ..  ]
+[e :U 39 ]
 "88
-[; ;snake.c: 88:     if(car[j][0]+i>=0){
-[e $ ! >= + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i -> 0 `i 47  ]
+[; ;snake.c: 88:  if(error==1){
+[e $ ! == -> _error `i -> 1 `i 40  ]
 {
 "89
-[; ;snake.c: 89:      map[2+2*j][car[j][0]+i]=1;
-[e = *U + &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i `ui `ux -> -> # *U &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;snake.c: 89:   printError();
+[e ( _printError ..  ]
 "90
-[; ;snake.c: 90:      if(player[1]==2+2*j && player[0]==car[j][0]+i)
-[e $ ! && == -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i + -> 2 `i * -> 2 `i _j == -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `i + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i 48  ]
+[; ;snake.c: 90:   return;
+[e $UE 37  ]
 "91
-[; ;snake.c: 91:       error=1;
-[e = _error -> -> 1 `i `uc ]
-[e :U 48 ]
+[; ;snake.c: 91:  }
+}
+[e :U 40 ]
 "92
-[; ;snake.c: 92:     }
-}
-[e :U 47 ]
+[; ;snake.c: 92:  for(j=0;j<16;++j){
+{
+[e = _j -> 0 `i ]
+[e $ < _j -> 16 `i 41  ]
+[e $U 42  ]
+[e :U 41 ]
+{
 "93
-[; ;snake.c: 93:    }
-}
-[e :U 46 ]
+[; ;snake.c: 93:   for(i=0;i<16;++i){
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 16 `i 44  ]
+[e $U 45  ]
+[e :U 44 ]
+{
 "94
-[; ;snake.c: 94:   }
+[; ;snake.c: 94:    map[j][i]=0;
+[e = *U + &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+"95
+[; ;snake.c: 95:   }
 }
 [e =+ _i -> 1 `i ]
-[e $ < _i -> 3 `i 40  ]
-[e :U 41 ]
+[e $ < _i -> 16 `i 44  ]
+[e :U 45 ]
 }
 "96
 [; ;snake.c: 96:  }
 }
 [e =+ _j -> 1 `i ]
-[e $ < _j -> 6 `i 37  ]
-[e :U 38 ]
+[e $ < _j -> 16 `i 41  ]
+[e :U 42 ]
 }
 "97
-[; ;snake.c: 97:  map[player[1]][player[0]]=1;
-[e = *U + &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> -> # *U &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;snake.c: 97:  for(j=0;j<6;++j){
+{
+[e = _j -> 0 `i ]
+[e $ < _j -> 6 `i 47  ]
+[e $U 48  ]
+[e :U 47 ]
+{
 "98
-[; ;snake.c: 98: }
-[e :UE 28 ]
-}
+[; ;snake.c: 98:   for(i=0;i<3;++i){
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 3 `i 50  ]
+[e $U 51  ]
+[e :U 50 ]
+{
+"99
+[; ;snake.c: 99:    if(j%2==0){
+[e $ ! == % _j -> 2 `i -> 0 `i 53  ]
+{
 "100
-[; ;snake.c: 100: void updatePlayer(){
+[; ;snake.c: 100:     if(car[j][0]-i<=15){
+[e $ ! <= - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i -> 15 `i 54  ]
+{
+"101
+[; ;snake.c: 101:      map[2+2*j][car[j][0]-i]=1;
+[e = *U + &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i `ui `ux -> -> # *U &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+"102
+[; ;snake.c: 102:      if(player[1]==2+2*j && player[0]==car[j][0]-i)
+[e $ ! && == -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i + -> 2 `i * -> 2 `i _j == -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `i - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i 55  ]
+"103
+[; ;snake.c: 103:       error=1;
+[e = _error -> -> 1 `i `uc ]
+[e :U 55 ]
+"104
+[; ;snake.c: 104:     }
+}
+[e :U 54 ]
+"105
+[; ;snake.c: 105:    }
+}
+[e $U 56  ]
+"106
+[; ;snake.c: 106:    else{
+[e :U 53 ]
+{
+"107
+[; ;snake.c: 107:     if(car[j][0]+i>=0){
+[e $ ! >= + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i -> 0 `i 57  ]
+{
+"108
+[; ;snake.c: 108:      map[2+2*j][car[j][0]+i]=1;
+[e = *U + &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i `ui `ux -> -> # *U &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+"109
+[; ;snake.c: 109:      if(player[1]==2+2*j && player[0]==car[j][0]+i)
+[e $ ! && == -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i + -> 2 `i * -> 2 `i _j == -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `i + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i 58  ]
+"110
+[; ;snake.c: 110:       error=1;
+[e = _error -> -> 1 `i `uc ]
+[e :U 58 ]
+"111
+[; ;snake.c: 111:     }
+}
+[e :U 57 ]
+"112
+[; ;snake.c: 112:    }
+}
+[e :U 56 ]
+"113
+[; ;snake.c: 113:   }
+}
+[e =+ _i -> 1 `i ]
+[e $ < _i -> 3 `i 50  ]
+[e :U 51 ]
+}
+"115
+[; ;snake.c: 115:  }
+}
+[e =+ _j -> 1 `i ]
+[e $ < _j -> 6 `i 47  ]
+[e :U 48 ]
+}
+"116
+[; ;snake.c: 116:  map[player[1]][player[0]]=1;
+[e = *U + &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> -> # *U &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+"117
+[; ;snake.c: 117: }
+[e :UE 37 ]
+}
+"119
+[; ;snake.c: 119: void updatePlayer(){
 [v _updatePlayer `(v ~T0 @X0 1 ef ]
 {
 [e :U _updatePlayer ]
 [f ]
-"101
-[; ;snake.c: 101:     map[player[1]][player[0]]=1;
+"120
+[; ;snake.c: 120:     map[player[1]][player[0]]=1;
 [e = *U + &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> -> # *U &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
-"102
-[; ;snake.c: 102: }
-[e :UE 49 ]
+"121
+[; ;snake.c: 121: }
+[e :UE 59 ]
 }
-"104
-[; ;snake.c: 104: void initMap(){
+"123
+[; ;snake.c: 123: void initMap(){
 [v _initMap `(v ~T0 @X0 1 ef ]
 {
 [e :U _initMap ]
 [f ]
-"105
-[; ;snake.c: 105:  int i,j;
+"124
+[; ;snake.c: 124:  int i,j;
 [v _i `i ~T0 @X0 1 a ]
 [v _j `i ~T0 @X0 1 a ]
-"106
-[; ;snake.c: 106:     error=0;
+"125
+[; ;snake.c: 125:     error=0;
 [e = _error -> -> 0 `i `uc ]
-"107
-[; ;snake.c: 107:     player[1]=15;
+"126
+[; ;snake.c: 126:     win=0;
+[e = _win -> -> 0 `i `uc ]
+"127
+[; ;snake.c: 127:     player[1]=15;
 [e = *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux -> -> 15 `i `uc ]
-"108
-[; ;snake.c: 108:     player[0]=4;
+"128
+[; ;snake.c: 128:     player[0]=4;
 [e = *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux -> -> 4 `i `uc ]
-"109
-[; ;snake.c: 109:  srand(time(((void*)0)));
+"129
+[; ;snake.c: 129:  srand(time(((void*)0)));
 [e ( _srand (1 -> ( _time (1 -> -> -> 0 `i `*v `*o `ui ]
-"110
-[; ;snake.c: 110:     for(j=0;j<16;++j)
+"130
+[; ;snake.c: 130:     for(j=0;j<16;++j)
 {
 [e = _j -> 0 `i ]
-[e $ < _j -> 16 `i 51  ]
-[e $U 52  ]
-[e :U 51 ]
-"111
-[; ;snake.c: 111:         for(i=0;i<16;++i)
+[e $ < _j -> 16 `i 61  ]
+[e $U 62  ]
+[e :U 61 ]
+"131
+[; ;snake.c: 131:         for(i=0;i<16;++i)
 {
 [e = _i -> 0 `i ]
-[e $ < _i -> 16 `i 54  ]
-[e $U 55  ]
-[e :U 54 ]
-"112
-[; ;snake.c: 112:             map[j][i]=0;
+[e $ < _i -> 16 `i 64  ]
+[e $U 65  ]
+[e :U 64 ]
+"132
+[; ;snake.c: 132:             map[j][i]=0;
 [e = *U + &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _map * -> -> _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
 [e =+ _i -> 1 `i ]
-[e $ < _i -> 16 `i 54  ]
-[e :U 55 ]
+[e $ < _i -> 16 `i 64  ]
+[e :U 65 ]
 }
 [e =+ _j -> 1 `i ]
-[e $ < _j -> 16 `i 51  ]
-[e :U 52 ]
+[e $ < _j -> 16 `i 61  ]
+[e :U 62 ]
 }
-"113
-[; ;snake.c: 113:  map[player[1]][player[0]]=1;
+"133
+[; ;snake.c: 133:  map[player[1]][player[0]]=1;
 [e = *U + &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> -> # *U &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
-"114
-[; ;snake.c: 114:  for(j=0;j<6;++j){
+"134
+[; ;snake.c: 134:  for(j=0;j<6;++j){
 {
 [e = _j -> 0 `i ]
-[e $ < _j -> 6 `i 57  ]
-[e $U 58  ]
-[e :U 57 ]
+[e $ < _j -> 6 `i 67  ]
+[e $U 68  ]
+[e :U 67 ]
 {
-"115
-[; ;snake.c: 115:   int num=(j%2==0)?1:-1;
+"135
+[; ;snake.c: 135:   int num=(j%2==0)?1:-1;
 [v _num `i ~T0 @X0 1 a ]
 [e = _num ? == % _j -> 2 `i -> 0 `i : -> 1 `i -U -> 1 `i ]
-"116
-[; ;snake.c: 116:   car[j][0]=rand()%12+2;
+"136
+[; ;snake.c: 136:   car[j][0]=rand()%12+2;
 [e = *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux + % ( _rand ..  -> 12 `i -> 2 `i ]
-"117
-[; ;snake.c: 117:   car[j][1]=car[j][0]+num*2;
+"137
+[; ;snake.c: 137:   car[j][1]=car[j][0]+num*2;
 [e = *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux * _num -> 2 `i ]
-"118
-[; ;snake.c: 118:   for(i=0;i<3;++i){
+"138
+[; ;snake.c: 138:   for(i=0;i<3;++i){
 {
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 60  ]
-[e $U 61  ]
-[e :U 60 ]
+[e $ < _i -> 3 `i 70  ]
+[e $U 71  ]
+[e :U 70 ]
 {
-"119
-[; ;snake.c: 119:    map[2+j*2][car[j][0]+num*i]=1;
+"139
+[; ;snake.c: 139:    map[2+j*2][car[j][0]+num*i]=1;
 [e = *U + &U *U + &U _map * -> -> + -> 2 `i * _j -> 2 `i `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux * _num _i `ui `ux -> -> # *U &U *U + &U _map * -> -> + -> 2 `i * _j -> 2 `i `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
-"121
-[; ;snake.c: 121:   }
+"141
+[; ;snake.c: 141:   }
 }
 [e =+ _i -> 1 `i ]
-[e $ < _i -> 3 `i 60  ]
-[e :U 61 ]
+[e $ < _i -> 3 `i 70  ]
+[e :U 71 ]
 }
-"122
-[; ;snake.c: 122:  }
+"142
+[; ;snake.c: 142:  }
 }
 [e =+ _j -> 1 `i ]
-[e $ < _j -> 6 `i 57  ]
-[e :U 58 ]
+[e $ < _j -> 6 `i 67  ]
+[e :U 68 ]
 }
-"123
-[; ;snake.c: 123: }
-[e :UE 50 ]
+"143
+[; ;snake.c: 143: }
+[e :UE 60 ]
 }
-"125
-[; ;snake.c: 125: void move(int direct){
+"145
+[; ;snake.c: 145: void move(int direct){
 [v _move `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _move ]
 [v _direct `i ~T0 @X0 1 r1 ]
 [f ]
-"126
-[; ;snake.c: 126:     map[player[1]][player[0]]=0;
-[e = *U + &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> -> # *U &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
-"127
-[; ;snake.c: 127:  switch(direct){
-[e $U 65  ]
-{
-"128
-[; ;snake.c: 128:   case 0:
-[e :U 66 ]
-"129
-[; ;snake.c: 129:    player[1]-=1;
-[e =- *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux -> -> 1 `i `uc ]
-"130
-[; ;snake.c: 130:    break;
-[e $U 64  ]
-"131
-[; ;snake.c: 131:   case 1:
-[e :U 67 ]
-"132
-[; ;snake.c: 132:    player[1]+=1;
-[e =+ *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux -> -> 1 `i `uc ]
-"133
-[; ;snake.c: 133:    break;
-[e $U 64  ]
-"134
-[; ;snake.c: 134:   case 2:
-[e :U 68 ]
-"135
-[; ;snake.c: 135:    player[0]-=1;
-[e =- *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux -> -> 1 `i `uc ]
-"136
-[; ;snake.c: 136:    break;
-[e $U 64  ]
-"137
-[; ;snake.c: 137:   default:
-[e :U 69 ]
-"138
-[; ;snake.c: 138:    player[0]+=1;
-[e =+ *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux -> -> 1 `i `uc ]
-"139
-[; ;snake.c: 139:    break;
-[e $U 64  ]
-"140
-[; ;snake.c: 140:  }
-}
-[e $U 64  ]
-[e :U 65 ]
-[e [\ _direct , $ -> 0 `i 66
- , $ -> 1 `i 67
- , $ -> 2 `i 68
- 69 ]
-[e :U 64 ]
-"141
-[; ;snake.c: 141:     map[player[1]][player[0]]=1;
-[e = *U + &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> -> # *U &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
-"142
-[; ;snake.c: 142:     int i,j;
-[v _i `i ~T0 @X0 1 a ]
-[v _j `i ~T0 @X0 1 a ]
-"143
-[; ;snake.c: 143:     for(j=0;j<6;++j){
-{
-[e = _j -> 0 `i ]
-[e $ < _j -> 6 `i 70  ]
-[e $U 71  ]
-[e :U 70 ]
-{
-"144
-[; ;snake.c: 144:         for(i=0;i<3;++i){
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 73  ]
-[e $U 74  ]
-[e :U 73 ]
-{
-"145
-[; ;snake.c: 145:             if(j%2==0){
-[e $ ! == % _j -> 2 `i -> 0 `i 76  ]
-{
 "146
-[; ;snake.c: 146:     if(car[j][0]-i<=15){
-[e $ ! <= - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i -> 15 `i 77  ]
-{
+[; ;snake.c: 146:     map[player[1]][player[0]]=0;
+[e = *U + &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> -> # *U &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
 "147
-[; ;snake.c: 147:      map[2+2*j][car[j][0]-i]=1;
-[e = *U + &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i `ui `ux -> -> # *U &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;snake.c: 147:  switch(direct){
+[e $U 75  ]
+{
 "148
-[; ;snake.c: 148:      if(player[1]==2+2*j && player[0]==car[j][0]-i)
-[e $ ! && == -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i + -> 2 `i * -> 2 `i _j == -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `i - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i 78  ]
-"149
-[; ;snake.c: 149:       error=1;
-[e = _error -> -> 1 `i `uc ]
-[e :U 78 ]
-"150
-[; ;snake.c: 150:     }
-}
-[e :U 77 ]
-"151
-[; ;snake.c: 151:    }
-}
-[e $U 79  ]
-"152
-[; ;snake.c: 152:    else{
+[; ;snake.c: 148:   case 0:
 [e :U 76 ]
-{
+"149
+[; ;snake.c: 149:             player[1]-=1;
+[e =- *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux -> -> 1 `i `uc ]
+"150
+[; ;snake.c: 150:    break;
+[e $U 74  ]
+"151
+[; ;snake.c: 151:   case 1:
+[e :U 77 ]
+"152
+[; ;snake.c: 152:             if(player[1]!=15)
+[e $ ! != -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i -> 15 `i 78  ]
 "153
-[; ;snake.c: 153:     if(car[j][0]+i>=0){
-[e $ ! >= + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i -> 0 `i 80  ]
-{
+[; ;snake.c: 153:                 player[1]+=1;
+[e =+ *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux -> -> 1 `i `uc ]
+[e :U 78 ]
 "154
-[; ;snake.c: 154:      map[2+2*j][car[j][0]+i]=1;
-[e = *U + &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i `ui `ux -> -> # *U &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;snake.c: 154:    break;
+[e $U 74  ]
 "155
-[; ;snake.c: 155:      if(player[1]==2+2*j && player[0]==car[j][0]+i)
-[e $ ! && == -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i + -> 2 `i * -> 2 `i _j == -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `i + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i 81  ]
+[; ;snake.c: 155:   case 2:
+[e :U 79 ]
 "156
-[; ;snake.c: 156:       error=1;
-[e = _error -> -> 1 `i `uc ]
-[e :U 81 ]
+[; ;snake.c: 156:             if(player[0]!=0)
+[e $ ! != -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `i -> 0 `i 80  ]
 "157
-[; ;snake.c: 157:     }
-}
+[; ;snake.c: 157:                 player[0]-=1;
+[e =- *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux -> -> 1 `i `uc ]
 [e :U 80 ]
 "158
-[; ;snake.c: 158:    }
-}
-[e :U 79 ]
+[; ;snake.c: 158:    break;
+[e $U 74  ]
 "159
-[; ;snake.c: 159:         }
+[; ;snake.c: 159:   default:
+[e :U 81 ]
+"160
+[; ;snake.c: 160:             if(player[0]!=15)
+[e $ ! != -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `i -> 15 `i 82  ]
+"161
+[; ;snake.c: 161:                 player[0]+=1;
+[e =+ *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux -> -> 1 `i `uc ]
+[e :U 82 ]
+"162
+[; ;snake.c: 162:    break;
+[e $U 74  ]
+"163
+[; ;snake.c: 163:  }
+}
+[e $U 74  ]
+[e :U 75 ]
+[e [\ _direct , $ -> 0 `i 76
+ , $ -> 1 `i 77
+ , $ -> 2 `i 79
+ 81 ]
+[e :U 74 ]
+"164
+[; ;snake.c: 164:     if(player[1]==0||player[1]>250)
+[e $ ! || == -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i -> 0 `i > -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i -> 250 `i 83  ]
+"165
+[; ;snake.c: 165:         win=1;
+[e = _win -> -> 1 `i `uc ]
+[e :U 83 ]
+"166
+[; ;snake.c: 166:     map[player[1]][player[0]]=1;
+[e = *U + &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> -> # *U &U *U + &U _map * -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+"167
+[; ;snake.c: 167:     int i,j;
+[v _i `i ~T0 @X0 1 a ]
+[v _j `i ~T0 @X0 1 a ]
+"168
+[; ;snake.c: 168:     for(j=0;j<6;++j){
+{
+[e = _j -> 0 `i ]
+[e $ < _j -> 6 `i 84  ]
+[e $U 85  ]
+[e :U 84 ]
+{
+"169
+[; ;snake.c: 169:         for(i=0;i<3;++i){
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 3 `i 87  ]
+[e $U 88  ]
+[e :U 87 ]
+{
+"170
+[; ;snake.c: 170:             if(j%2==0){
+[e $ ! == % _j -> 2 `i -> 0 `i 90  ]
+{
+"171
+[; ;snake.c: 171:     if(car[j][0]-i<=15){
+[e $ ! <= - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i -> 15 `i 91  ]
+{
+"172
+[; ;snake.c: 172:      map[2+2*j][car[j][0]-i]=1;
+[e = *U + &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i `ui `ux -> -> # *U &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+"173
+[; ;snake.c: 173:      if(player[1]==2+2*j && player[0]==car[j][0]-i)
+[e $ ! && == -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i + -> 2 `i * -> 2 `i _j == -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `i - *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i 92  ]
+"174
+[; ;snake.c: 174:       error=1;
+[e = _error -> -> 1 `i `uc ]
+[e :U 92 ]
+"175
+[; ;snake.c: 175:     }
+}
+[e :U 91 ]
+"176
+[; ;snake.c: 176:    }
+}
+[e $U 93  ]
+"177
+[; ;snake.c: 177:    else{
+[e :U 90 ]
+{
+"178
+[; ;snake.c: 178:     if(car[j][0]+i>=0){
+[e $ ! >= + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i -> 0 `i 94  ]
+{
+"179
+[; ;snake.c: 179:      map[2+2*j][car[j][0]+i]=1;
+[e = *U + &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux * -> -> + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i `ui `ux -> -> # *U &U *U + &U _map * -> -> + -> 2 `i * -> 2 `i _j `ui `ux -> * -> # *U &U *U &U _map `ui -> -> 16 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+"180
+[; ;snake.c: 180:      if(player[1]==2+2*j && player[0]==car[j][0]+i)
+[e $ ! && == -> *U + &U _player * -> -> -> 1 `i `ui `ux -> -> # *U &U _player `ui `ux `i + -> 2 `i * -> 2 `i _j == -> *U + &U _player * -> -> -> 0 `i `ui `ux -> -> # *U &U _player `ui `ux `i + *U + &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _car * -> -> _j `ui `ux -> * -> # *U &U *U &U _car `ui -> -> 2 `i `ui `ux `ui `ux _i 95  ]
+"181
+[; ;snake.c: 181:       error=1;
+[e = _error -> -> 1 `i `uc ]
+[e :U 95 ]
+"182
+[; ;snake.c: 182:     }
+}
+[e :U 94 ]
+"183
+[; ;snake.c: 183:    }
+}
+[e :U 93 ]
+"184
+[; ;snake.c: 184:         }
 }
 [e =+ _i -> 1 `i ]
-[e $ < _i -> 3 `i 73  ]
-[e :U 74 ]
+[e $ < _i -> 3 `i 87  ]
+[e :U 88 ]
 }
-"160
-[; ;snake.c: 160:     }
+"185
+[; ;snake.c: 185:     }
 }
 [e =+ _j -> 1 `i ]
-[e $ < _j -> 6 `i 70  ]
-[e :U 71 ]
+[e $ < _j -> 6 `i 84  ]
+[e :U 85 ]
 }
-"162
-[; ;snake.c: 162: }
-[e :UE 63 ]
+"187
+[; ;snake.c: 187: }
+[e :UE 73 ]
 }

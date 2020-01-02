@@ -26,6 +26,7 @@ unsigned char map[16][16]={
 unsigned char player[2]={4,15};
 int car[6][2];
 unsigned char error=0;
+unsigned char win=0;
 
 void printError(){
 	int i,j=0;
@@ -38,6 +39,20 @@ void printError(){
 				map[j][i]=0;
 		}
 	}
+}
+
+void printWin(){
+	int i,j=0;
+    //*endSnake=0;
+	for(j=0;j<16;++j){
+		for(i=0;i<16;++i){
+			if(i==0||i==15||j==0||j==15)
+				map[j][i]=1;
+			else
+				map[j][i]=0;
+		}
+	}
+    error=1;
 }
 
 
@@ -64,6 +79,10 @@ void updateCar(){
 
 void updateMap(){
 	int i,j;
+    if(win==1){
+		printWin();
+		return;
+	}
     if(error!=1)
         updateCar();
 	if(error==1){
@@ -104,6 +123,7 @@ void updatePlayer(){
 void initMap(){
 	int i,j;
     error=0;
+    win=0;
     player[1]=15;
     player[0]=4;
 	srand(time(NULL));
@@ -126,18 +146,23 @@ void move(int direct){
     map[player[1]][player[0]]=0;
 	switch(direct){
 		case 0:
-			player[1]-=1;
+            player[1]-=1;
 			break;
 		case 1:
-			player[1]+=1;
+            if(player[1]!=15)
+                player[1]+=1;
 			break;
 		case 2:
-			player[0]-=1;
+            if(player[0]!=0)
+                player[0]-=1;
 			break;
 		default:
-			player[0]+=1;
+            if(player[0]!=15)
+                player[0]+=1;
 			break;
 	}
+    if(player[1]==0||player[1]>250)
+        win=1;
     map[player[1]][player[0]]=1;
     int i,j;
     for(j=0;j<6;++j){
